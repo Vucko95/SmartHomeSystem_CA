@@ -15,6 +15,8 @@ import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
+import io.grpc.stub.StreamObserver;
+
 /**
  */
 @javax.annotation.Generated(
@@ -156,6 +158,16 @@ public final class gymRoomControlServiceGrpc {
                   this, METHODID_TURN_ON_OFF_LIGHTS)))
           .build();
     }
+
+	public void changeRoomTemp(TempRequest request, StreamObserver<TempResponse> responseObserver) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ChangeRoomTemp(TempRequest request, StreamObserver<TempResponse> responseObserver) {
+		// TODO Auto-generated method stub
+		
+	}
   }
 
   /**

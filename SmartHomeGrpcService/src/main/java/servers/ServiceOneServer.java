@@ -1,10 +1,13 @@
 package servers;
 import java.io.IOException;
-
+import gymRoomControlService.*;
 import gymRoomControlService.GymRoomControlServiceImpl;
+import gymRoomControlService.TempRequest;
+import gymRoomControlService.TempResponse;
 import gymRoomControlService.gymRoomControlServiceGrpc.gymRoomControlServiceImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.stub.StreamObserver;
 
 public class ServiceOneServer {
 	private Server server;
@@ -31,10 +34,29 @@ public class ServiceOneServer {
 	// we will abstract base class for implemntation
 	
 	static class GymRoomControlServerImpl extends gymRoomControlServiceImplBase  {
+		@Override
+		public void ChangeRoomTemp(TempRequest request, StreamObserver<TempResponse> responseObserver) {
+			// message that client sent
+			String tempInput = request.changeRoomTemp();
+			System.out.println("Tempeature has been set to" + tempInput);
+			String tempOutput = tempInput;
+			// response
+			TempResponse.Builder response = TempResponse.newBuilder();
+			
+			response.setTempOutput("This TEMP has been set" + tempOutput);
+			
+			responseObserver.onNext(response.build());
+			responseObserver.onCompleted();
+			
+		}
+		
+	
 	}
 	
 	
 	
-	}
+	
+	
+	} // end of main
 
 

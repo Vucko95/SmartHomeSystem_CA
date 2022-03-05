@@ -475,6 +475,11 @@ private static final long serialVersionUID = 0L;
   public gymRoomControlService.TempRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
+public String changeRoomTemp() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 
 }
 

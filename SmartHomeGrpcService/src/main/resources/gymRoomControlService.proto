@@ -6,7 +6,7 @@ option java_outer_classname = "GymRoomControlServiceImpl";
 
 service gymRoomControlService {
 	// Client Streaming RPC
-	rpc changeRoomTemp (stream TempRequest) returns (TempResponse) {}
+	rpc ChangeRoomTemp (stream TempRequest) returns (TempResponse) {}
 	//unary
 	rpc turnOnOffLights (LightRequest) returns (LightResponse) ;
 }
