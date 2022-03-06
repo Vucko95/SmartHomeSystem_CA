@@ -41,7 +41,7 @@ public class ServiceOneServer {
 				@Override
 				public void onNext(TempRequest value) {
 					// TODO Auto-generated method stub
-					
+					System.out.println("Message received from client" + value.getTempInput());
 				}
 
 				@Override
@@ -53,7 +53,11 @@ public class ServiceOneServer {
 				@Override
 				public void onCompleted() {
 					// TODO Auto-generated method stub
-					
+					TempResponse.Builder response = TempResponse.newBuilder();
+					String tempOutput = "Test";
+					response.setTempOutput("Response is " + tempOutput);
+					responseObserver.onNext(response.build());
+					responseObserver.onCompleted();
 				}
 				
 			};
