@@ -38,6 +38,7 @@ public class ServiceOneServer {
 		public StreamObserver<TempRequest> changeRoomTemp(StreamObserver<TempResponse> responseObserver){
 			return new StreamObserver<TempRequest>() {
 
+				
 				@Override
 				public void onNext(TempRequest value) {
 					// TODO Auto-generated method stub

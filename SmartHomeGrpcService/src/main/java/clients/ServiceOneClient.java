@@ -33,6 +33,7 @@ public class ServiceOneClient {
 		public void onCompleted() {				
 								
 			}
+		
 		});
 	
 	
