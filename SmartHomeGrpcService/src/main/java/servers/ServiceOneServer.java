@@ -35,23 +35,39 @@ public class ServiceOneServer {
 	
 	static class GymRoomControlServerImpl extends gymRoomControlServiceImplBase  {
 		@Override
-		public void ChangeRoomTemp(TempRequest request, StreamObserver<TempResponse> responseObserver) {
-			// message that client sent
-			String tempInput = request.changeRoomTemp();
-			System.out.println("Tempeature has been set to" + tempInput);
-			String tempOutput = tempInput;
-			// response
-			TempResponse.Builder response = TempResponse.newBuilder();
+		public StreamObserver<TempRequest> changeRoomTemp(StreamObserver<TempResponse> responseObserver){
+			return new StreamObserver<TempRequest>() {
+
+				@Override
+				public void onNext(TempRequest value) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onError(Throwable t) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onCompleted() {
+					// TODO Auto-generated method stub
+					
+				}
+				
+			};
 			
-			response.setTempOutput("This TEMP has been set" + tempOutput);
 			
-			responseObserver.onNext(response.build());
-			responseObserver.onCompleted();
 			
 		}
 		
+		
+		
+		} 
+		
 	
-	}
+	
 	
 	
 	

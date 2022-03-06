@@ -48,7 +48,7 @@ public final class GymRoomControlServiceImpl {
       "\022\n\ntempOutput\030\001 \001(\t\"#\n\014LightRequest\022\023\n\013t" +
       "urnLightOn\030\001 \001(\010\"%\n\rLightResponse\022\024\n\014tur" +
       "nLightOff\030\001 \001(\0102|\n\025gymRoomControlService" +
-      "\0221\n\016changeRoomTemp\022\014.TempRequest\032\r.TempR" +
+      "\0221\n\016ChangeRoomTemp\022\014.TempRequest\032\r.TempR" +
       "esponse\"\000(\001\0220\n\017turnOnOffLights\022\r.LightRe" +
       "quest\032\016.LightResponseB4\n\025gymRoomControlS" +
       "erviceB\031GymRoomControlServiceImplP\001b\006pro" +

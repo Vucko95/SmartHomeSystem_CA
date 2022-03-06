@@ -33,7 +33,7 @@ public final class gymRoomControlServiceGrpc {
       gymRoomControlService.TempResponse> getChangeRoomTempMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "changeRoomTemp",
+      fullMethodName = SERVICE_NAME + '/' + "ChangeRoomTemp",
       requestType = gymRoomControlService.TempRequest.class,
       responseType = gymRoomControlService.TempResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
@@ -47,13 +47,13 @@ public final class gymRoomControlServiceGrpc {
               io.grpc.MethodDescriptor.<gymRoomControlService.TempRequest, gymRoomControlService.TempResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "gymRoomControlService", "changeRoomTemp"))
+                  "gymRoomControlService", "ChangeRoomTemp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gymRoomControlService.TempRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gymRoomControlService.TempResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new gymRoomControlServiceMethodDescriptorSupplier("changeRoomTemp"))
+                  .setSchemaDescriptor(new gymRoomControlServiceMethodDescriptorSupplier("ChangeRoomTemp"))
                   .build();
           }
         }
@@ -159,15 +159,7 @@ public final class gymRoomControlServiceGrpc {
           .build();
     }
 
-	public void changeRoomTemp(TempRequest request, StreamObserver<TempResponse> responseObserver) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void ChangeRoomTemp(TempRequest request, StreamObserver<TempResponse> responseObserver) {
-		// TODO Auto-generated method stub
-		
-	}
+	
   }
 
   /**
