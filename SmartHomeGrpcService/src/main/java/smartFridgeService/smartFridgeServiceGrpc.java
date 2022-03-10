@@ -27,6 +27,70 @@ public final class smartFridgeServiceGrpc {
   public static final String SERVICE_NAME = "smartFridgeService";
 
   // Static method descriptors that strictly reflect the proto.
+  private static volatile io.grpc.MethodDescriptor<smartFridgeService.ProductRequest,
+      smartFridgeService.ProductResponse> getProductStockCheckerMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "productStockChecker",
+      requestType = smartFridgeService.ProductRequest.class,
+      responseType = smartFridgeService.ProductResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<smartFridgeService.ProductRequest,
+      smartFridgeService.ProductResponse> getProductStockCheckerMethod() {
+    io.grpc.MethodDescriptor<smartFridgeService.ProductRequest, smartFridgeService.ProductResponse> getProductStockCheckerMethod;
+    if ((getProductStockCheckerMethod = smartFridgeServiceGrpc.getProductStockCheckerMethod) == null) {
+      synchronized (smartFridgeServiceGrpc.class) {
+        if ((getProductStockCheckerMethod = smartFridgeServiceGrpc.getProductStockCheckerMethod) == null) {
+          smartFridgeServiceGrpc.getProductStockCheckerMethod = getProductStockCheckerMethod = 
+              io.grpc.MethodDescriptor.<smartFridgeService.ProductRequest, smartFridgeService.ProductResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "smartFridgeService", "productStockChecker"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  smartFridgeService.ProductRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  smartFridgeService.ProductResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new smartFridgeServiceMethodDescriptorSupplier("productStockChecker"))
+                  .build();
+          }
+        }
+     }
+     return getProductStockCheckerMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<smartFridgeService.ProductRequestNoParam,
+      smartFridgeService.ProductResponse> getFullStockCheckerMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "fullStockChecker",
+      requestType = smartFridgeService.ProductRequestNoParam.class,
+      responseType = smartFridgeService.ProductResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<smartFridgeService.ProductRequestNoParam,
+      smartFridgeService.ProductResponse> getFullStockCheckerMethod() {
+    io.grpc.MethodDescriptor<smartFridgeService.ProductRequestNoParam, smartFridgeService.ProductResponse> getFullStockCheckerMethod;
+    if ((getFullStockCheckerMethod = smartFridgeServiceGrpc.getFullStockCheckerMethod) == null) {
+      synchronized (smartFridgeServiceGrpc.class) {
+        if ((getFullStockCheckerMethod = smartFridgeServiceGrpc.getFullStockCheckerMethod) == null) {
+          smartFridgeServiceGrpc.getFullStockCheckerMethod = getFullStockCheckerMethod = 
+              io.grpc.MethodDescriptor.<smartFridgeService.ProductRequestNoParam, smartFridgeService.ProductResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "smartFridgeService", "fullStockChecker"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  smartFridgeService.ProductRequestNoParam.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  smartFridgeService.ProductResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new smartFridgeServiceMethodDescriptorSupplier("fullStockChecker"))
+                  .build();
+          }
+        }
+     }
+     return getFullStockCheckerMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -54,8 +118,36 @@ public final class smartFridgeServiceGrpc {
    */
   public static abstract class smartFridgeServiceImplBase implements io.grpc.BindableService {
 
+    /**
+     */
+    public void productStockChecker(smartFridgeService.ProductRequest request,
+        io.grpc.stub.StreamObserver<smartFridgeService.ProductResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getProductStockCheckerMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void fullStockChecker(smartFridgeService.ProductRequestNoParam request,
+        io.grpc.stub.StreamObserver<smartFridgeService.ProductResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getFullStockCheckerMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getProductStockCheckerMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                smartFridgeService.ProductRequest,
+                smartFridgeService.ProductResponse>(
+                  this, METHODID_PRODUCT_STOCK_CHECKER)))
+          .addMethod(
+            getFullStockCheckerMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                smartFridgeService.ProductRequestNoParam,
+                smartFridgeService.ProductResponse>(
+                  this, METHODID_FULL_STOCK_CHECKER)))
           .build();
     }
   }
@@ -77,6 +169,22 @@ public final class smartFridgeServiceGrpc {
         io.grpc.CallOptions callOptions) {
       return new smartFridgeServiceStub(channel, callOptions);
     }
+
+    /**
+     */
+    public void productStockChecker(smartFridgeService.ProductRequest request,
+        io.grpc.stub.StreamObserver<smartFridgeService.ProductResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getProductStockCheckerMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void fullStockChecker(smartFridgeService.ProductRequestNoParam request,
+        io.grpc.stub.StreamObserver<smartFridgeService.ProductResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getFullStockCheckerMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -95,6 +203,21 @@ public final class smartFridgeServiceGrpc {
     protected smartFridgeServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new smartFridgeServiceBlockingStub(channel, callOptions);
+    }
+
+    /**
+     */
+    public smartFridgeService.ProductResponse productStockChecker(smartFridgeService.ProductRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getProductStockCheckerMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<smartFridgeService.ProductResponse> fullStockChecker(
+        smartFridgeService.ProductRequestNoParam request) {
+      return blockingServerStreamingCall(
+          getChannel(), getFullStockCheckerMethod(), getCallOptions(), request);
     }
   }
 
@@ -115,8 +238,18 @@ public final class smartFridgeServiceGrpc {
         io.grpc.CallOptions callOptions) {
       return new smartFridgeServiceFutureStub(channel, callOptions);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<smartFridgeService.ProductResponse> productStockChecker(
+        smartFridgeService.ProductRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getProductStockCheckerMethod(), getCallOptions()), request);
+    }
   }
 
+  private static final int METHODID_PRODUCT_STOCK_CHECKER = 0;
+  private static final int METHODID_FULL_STOCK_CHECKER = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -135,6 +268,14 @@ public final class smartFridgeServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_PRODUCT_STOCK_CHECKER:
+          serviceImpl.productStockChecker((smartFridgeService.ProductRequest) request,
+              (io.grpc.stub.StreamObserver<smartFridgeService.ProductResponse>) responseObserver);
+          break;
+        case METHODID_FULL_STOCK_CHECKER:
+          serviceImpl.fullStockChecker((smartFridgeService.ProductRequestNoParam) request,
+              (io.grpc.stub.StreamObserver<smartFridgeService.ProductResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -196,6 +337,8 @@ public final class smartFridgeServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new smartFridgeServiceFileDescriptorSupplier())
+              .addMethod(getProductStockCheckerMethod())
+              .addMethod(getFullStockCheckerMethod())
               .build();
         }
       }

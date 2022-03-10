@@ -4,7 +4,7 @@
 package smartFridgeService;
 
 public final class SmartFridgeServiceImpl {
-  private SmartFridgeServiceImpl() {}
+  public SmartFridgeServiceImpl() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -14,6 +14,21 @@ public final class SmartFridgeServiceImpl {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ProductRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ProductRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ProductRequestNoParam_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ProductRequestNoParam_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ProductResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ProductResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -23,9 +38,15 @@ public final class SmartFridgeServiceImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030smartFridgeService.proto2\024\n\022smartFridg" +
-      "eServiceB.\n\022smartFridgeServiceB\026SmartFri" +
-      "dgeServiceImplP\001b\006proto3"
+      "\n\030smartFridgeService.proto\"!\n\016ProductReq" +
+      "uest\022\017\n\007product\030\001 \001(\t\"\027\n\025ProductRequestN" +
+      "oParam\"8\n\017ProductResponse\022\017\n\007product\030\001 \001" +
+      "(\t\022\024\n\014stock_status\030\002 \001(\0052\222\001\n\022smartFridge" +
+      "Service\022:\n\023productStockChecker\022\017.Product" +
+      "Request\032\020.ProductResponse\"\000\022@\n\020fullStock" +
+      "Checker\022\026.ProductRequestNoParam\032\020.Produc" +
+      "tResponse\"\0000\001B.\n\022smartFridgeServiceB\026Sma" +
+      "rtFridgeServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -39,6 +60,24 @@ public final class SmartFridgeServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_ProductRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_ProductRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ProductRequest_descriptor,
+        new java.lang.String[] { "Product", });
+    internal_static_ProductRequestNoParam_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_ProductRequestNoParam_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ProductRequestNoParam_descriptor,
+        new java.lang.String[] { });
+    internal_static_ProductResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_ProductResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ProductResponse_descriptor,
+        new java.lang.String[] { "Product", "StockStatus", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
