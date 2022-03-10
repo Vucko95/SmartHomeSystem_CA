@@ -3,8 +3,11 @@
 
 package workoutTrackerService;
 
-public final class WorkoutTrackerServiceImpl {
-  private WorkoutTrackerServiceImpl() {}
+import io.grpc.BindableService;
+import io.grpc.ServerServiceDefinition;
+
+public final class WorkoutTrackerServiceImpl implements BindableService {
+  public WorkoutTrackerServiceImpl() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -49,7 +52,7 @@ public final class WorkoutTrackerServiceImpl {
       "(\005\">\n\024WorkoutDetailRequest\022\024\n\014workout_na" +
       "me\030\001 \001(\t\022\020\n\010duration\030\003 \001(\001\"/\n\025WorkoutDet" +
       "ailResponse\022\026\n\016burnedCalories\030\001 \001(\0052\231\001\n\025" +
-      "WorkoutTrackerService\022@\n\rcalorieBurner\022\025" +
+      "workoutTrackerService\022@\n\rcalorieBurner\022\025" +
       ".WorkoutDetailRequest\032\026.WorkoutDetailRes" +
       "ponse\"\000\022>\n\021foodIntakeCounter\022\014.MealReque" +
       "st\032\025.MealCaloriesResponse\"\000(\0010\001B4\n\025worko" +
@@ -93,6 +96,11 @@ public final class WorkoutTrackerServiceImpl {
         internal_static_WorkoutDetailResponse_descriptor,
         new java.lang.String[] { "BurnedCalories", });
   }
+@Override
+public ServerServiceDefinition bindService() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
   // @@protoc_insertion_point(outer_class_scope)
 }

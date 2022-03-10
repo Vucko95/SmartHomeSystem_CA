@@ -24,7 +24,7 @@ public final class workoutTrackerServiceGrpc {
 
   private workoutTrackerServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "WorkoutTrackerService";
+  public static final String SERVICE_NAME = "workoutTrackerService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<workoutTrackerService.WorkoutDetailRequest,
@@ -45,13 +45,13 @@ public final class workoutTrackerServiceGrpc {
               io.grpc.MethodDescriptor.<workoutTrackerService.WorkoutDetailRequest, workoutTrackerService.WorkoutDetailResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "WorkoutTrackerService", "calorieBurner"))
+                  "workoutTrackerService", "calorieBurner"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   workoutTrackerService.WorkoutDetailRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   workoutTrackerService.WorkoutDetailResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new WorkoutTrackerServiceMethodDescriptorSupplier("calorieBurner"))
+                  .setSchemaDescriptor(new workoutTrackerServiceMethodDescriptorSupplier("calorieBurner"))
                   .build();
           }
         }
@@ -77,13 +77,13 @@ public final class workoutTrackerServiceGrpc {
               io.grpc.MethodDescriptor.<workoutTrackerService.MealRequest, workoutTrackerService.MealCaloriesResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "WorkoutTrackerService", "foodIntakeCounter"))
+                  "workoutTrackerService", "foodIntakeCounter"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   workoutTrackerService.MealRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   workoutTrackerService.MealCaloriesResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new WorkoutTrackerServiceMethodDescriptorSupplier("foodIntakeCounter"))
+                  .setSchemaDescriptor(new workoutTrackerServiceMethodDescriptorSupplier("foodIntakeCounter"))
                   .build();
           }
         }
@@ -94,29 +94,29 @@ public final class workoutTrackerServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static WorkoutTrackerServiceStub newStub(io.grpc.Channel channel) {
-    return new WorkoutTrackerServiceStub(channel);
+  public static workoutTrackerServiceStub newStub(io.grpc.Channel channel) {
+    return new workoutTrackerServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static WorkoutTrackerServiceBlockingStub newBlockingStub(
+  public static workoutTrackerServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new WorkoutTrackerServiceBlockingStub(channel);
+    return new workoutTrackerServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static WorkoutTrackerServiceFutureStub newFutureStub(
+  public static workoutTrackerServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new WorkoutTrackerServiceFutureStub(channel);
+    return new workoutTrackerServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class WorkoutTrackerServiceImplBase implements io.grpc.BindableService {
+  public static abstract class workoutTrackerServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -154,20 +154,20 @@ public final class workoutTrackerServiceGrpc {
 
   /**
    */
-  public static final class WorkoutTrackerServiceStub extends io.grpc.stub.AbstractStub<WorkoutTrackerServiceStub> {
-    private WorkoutTrackerServiceStub(io.grpc.Channel channel) {
+  public static final class workoutTrackerServiceStub extends io.grpc.stub.AbstractStub<workoutTrackerServiceStub> {
+    private workoutTrackerServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private WorkoutTrackerServiceStub(io.grpc.Channel channel,
+    private workoutTrackerServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected WorkoutTrackerServiceStub build(io.grpc.Channel channel,
+    protected workoutTrackerServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new WorkoutTrackerServiceStub(channel, callOptions);
+      return new workoutTrackerServiceStub(channel, callOptions);
     }
 
     /**
@@ -189,20 +189,20 @@ public final class workoutTrackerServiceGrpc {
 
   /**
    */
-  public static final class WorkoutTrackerServiceBlockingStub extends io.grpc.stub.AbstractStub<WorkoutTrackerServiceBlockingStub> {
-    private WorkoutTrackerServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class workoutTrackerServiceBlockingStub extends io.grpc.stub.AbstractStub<workoutTrackerServiceBlockingStub> {
+    private workoutTrackerServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private WorkoutTrackerServiceBlockingStub(io.grpc.Channel channel,
+    private workoutTrackerServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected WorkoutTrackerServiceBlockingStub build(io.grpc.Channel channel,
+    protected workoutTrackerServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new WorkoutTrackerServiceBlockingStub(channel, callOptions);
+      return new workoutTrackerServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -215,20 +215,20 @@ public final class workoutTrackerServiceGrpc {
 
   /**
    */
-  public static final class WorkoutTrackerServiceFutureStub extends io.grpc.stub.AbstractStub<WorkoutTrackerServiceFutureStub> {
-    private WorkoutTrackerServiceFutureStub(io.grpc.Channel channel) {
+  public static final class workoutTrackerServiceFutureStub extends io.grpc.stub.AbstractStub<workoutTrackerServiceFutureStub> {
+    private workoutTrackerServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private WorkoutTrackerServiceFutureStub(io.grpc.Channel channel,
+    private workoutTrackerServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected WorkoutTrackerServiceFutureStub build(io.grpc.Channel channel,
+    protected workoutTrackerServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new WorkoutTrackerServiceFutureStub(channel, callOptions);
+      return new workoutTrackerServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -248,10 +248,10 @@ public final class workoutTrackerServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final WorkoutTrackerServiceImplBase serviceImpl;
+    private final workoutTrackerServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(WorkoutTrackerServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(workoutTrackerServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -283,9 +283,9 @@ public final class workoutTrackerServiceGrpc {
     }
   }
 
-  private static abstract class WorkoutTrackerServiceBaseDescriptorSupplier
+  private static abstract class workoutTrackerServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    WorkoutTrackerServiceBaseDescriptorSupplier() {}
+    workoutTrackerServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -294,21 +294,21 @@ public final class workoutTrackerServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("WorkoutTrackerService");
+      return getFileDescriptor().findServiceByName("workoutTrackerService");
     }
   }
 
-  private static final class WorkoutTrackerServiceFileDescriptorSupplier
-      extends WorkoutTrackerServiceBaseDescriptorSupplier {
-    WorkoutTrackerServiceFileDescriptorSupplier() {}
+  private static final class workoutTrackerServiceFileDescriptorSupplier
+      extends workoutTrackerServiceBaseDescriptorSupplier {
+    workoutTrackerServiceFileDescriptorSupplier() {}
   }
 
-  private static final class WorkoutTrackerServiceMethodDescriptorSupplier
-      extends WorkoutTrackerServiceBaseDescriptorSupplier
+  private static final class workoutTrackerServiceMethodDescriptorSupplier
+      extends workoutTrackerServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    WorkoutTrackerServiceMethodDescriptorSupplier(String methodName) {
+    workoutTrackerServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -327,7 +327,7 @@ public final class workoutTrackerServiceGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new WorkoutTrackerServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new workoutTrackerServiceFileDescriptorSupplier())
               .addMethod(getCalorieBurnerMethod())
               .addMethod(getFoodIntakeCounterMethod())
               .build();
