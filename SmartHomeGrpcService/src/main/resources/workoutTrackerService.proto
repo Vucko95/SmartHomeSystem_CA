@@ -4,6 +4,26 @@ option java_package = "workoutTrackerService";
 option java_multiple_files = true;
 option java_outer_classname = "WorkoutTrackerServiceImpl";
 
-service workoutTrackerService {
+service WorkoutTrackerService {
 
+  rpc calorieBurner(WorkoutDetailRequest) returns (WorkoutDetailResponse) {}
+  rpc foodIntakeCounter(stream MealRequest) returns (stream MealCaloriesResponse) {}
+}
+
+message MealRequest{
+  string meal = 1;
+  int32 serving = 2;
+}
+
+message MealCaloriesResponse{
+  int32 dailyCalories = 1;
+}
+
+message WorkoutDetailRequest {
+  string workout_name = 1;
+  double duration = 3;
+}
+
+message WorkoutDetailResponse{
+  int32 burnedCalories = 1;
 }

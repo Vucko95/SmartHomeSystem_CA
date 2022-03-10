@@ -14,6 +14,26 @@ public final class WorkoutTrackerServiceImpl {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MealRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MealRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MealCaloriesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MealCaloriesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_WorkoutDetailRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_WorkoutDetailRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_WorkoutDetailResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_WorkoutDetailResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -23,9 +43,18 @@ public final class WorkoutTrackerServiceImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\033workoutTrackerService.proto2\027\n\025workout" +
-      "TrackerServiceB4\n\025workoutTrackerServiceB" +
-      "\031WorkoutTrackerServiceImplP\001b\006proto3"
+      "\n\033workoutTrackerService.proto\",\n\013MealReq" +
+      "uest\022\014\n\004meal\030\001 \001(\t\022\017\n\007serving\030\002 \001(\005\"-\n\024M" +
+      "ealCaloriesResponse\022\025\n\rdailyCalories\030\001 \001" +
+      "(\005\">\n\024WorkoutDetailRequest\022\024\n\014workout_na" +
+      "me\030\001 \001(\t\022\020\n\010duration\030\003 \001(\001\"/\n\025WorkoutDet" +
+      "ailResponse\022\026\n\016burnedCalories\030\001 \001(\0052\231\001\n\025" +
+      "WorkoutTrackerService\022@\n\rcalorieBurner\022\025" +
+      ".WorkoutDetailRequest\032\026.WorkoutDetailRes" +
+      "ponse\"\000\022>\n\021foodIntakeCounter\022\014.MealReque" +
+      "st\032\025.MealCaloriesResponse\"\000(\0010\001B4\n\025worko" +
+      "utTrackerServiceB\031WorkoutTrackerServiceI" +
+      "mplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -39,6 +68,30 @@ public final class WorkoutTrackerServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_MealRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_MealRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MealRequest_descriptor,
+        new java.lang.String[] { "Meal", "Serving", });
+    internal_static_MealCaloriesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_MealCaloriesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MealCaloriesResponse_descriptor,
+        new java.lang.String[] { "DailyCalories", });
+    internal_static_WorkoutDetailRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_WorkoutDetailRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_WorkoutDetailRequest_descriptor,
+        new java.lang.String[] { "WorkoutName", "Duration", });
+    internal_static_WorkoutDetailResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_WorkoutDetailResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_WorkoutDetailResponse_descriptor,
+        new java.lang.String[] { "BurnedCalories", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
