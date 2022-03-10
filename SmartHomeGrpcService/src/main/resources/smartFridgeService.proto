@@ -6,4 +6,17 @@ option java_outer_classname = "SmartFridgeServiceImpl";
 
 service smartFridgeService {
 
+  rpc productStockChecker(ProductRequest) returns (ProductResponse){}
+  rpc fullStockChecker(ProductRequestNoParam) returns (stream ProductResponse){}
+}
+
+message ProductRequest{
+  string product = 1;
+}
+
+message ProductRequestNoParam{}
+
+message ProductResponse{
+  string product = 1;
+  int32 stock_status = 2;
 }
