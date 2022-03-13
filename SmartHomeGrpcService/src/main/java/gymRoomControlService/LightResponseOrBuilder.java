@@ -8,7 +8,11 @@ public interface LightResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool turnLightOff = 1;</code>
+   * <code>.LightStatus turnLightResponse = 1;</code>
    */
-  boolean getTurnLightOff();
+  int getTurnLightResponseValue();
+  /**
+   * <code>.LightStatus turnLightResponse = 1;</code>
+   */
+  gymRoomControlService.LightStatus getTurnLightResponse();
 }

@@ -3,8 +3,8 @@
 
 package gymRoomControlService;
 
-public final class GymRoomControlServiceImpl {
-  private GymRoomControlServiceImpl() {}
+public final class GymRoomProtoService {
+  private GymRoomProtoService() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -45,14 +45,15 @@ public final class GymRoomControlServiceImpl {
     java.lang.String[] descriptorData = {
       "\n\033gymRoomControlService.proto\" \n\013TempReq" +
       "uest\022\021\n\ttempInput\030\001 \001(\005\"\"\n\014TempResponse\022" +
-      "\022\n\ntempOutput\030\001 \001(\t\"#\n\014LightRequest\022\023\n\013t" +
-      "urnLightOn\030\001 \001(\010\"%\n\rLightResponse\022\024\n\014tur" +
-      "nLightOff\030\001 \001(\0102|\n\025gymRoomControlService" +
-      "\0221\n\016ChangeRoomTemp\022\014.TempRequest\032\r.TempR" +
-      "esponse\"\000(\001\0220\n\017turnOnOffLights\022\r.LightRe" +
-      "quest\032\016.LightResponseB4\n\025gymRoomControlS" +
-      "erviceB\031GymRoomControlServiceImplP\001b\006pro" +
-      "to3"
+      "\022\n\ntempOutput\030\001 \001(\005\"6\n\014LightRequest\022&\n\020t" +
+      "urnLightRequest\030\001 \001(\0162\014.LightStatus\"8\n\rL" +
+      "ightResponse\022\'\n\021turnLightResponse\030\001 \001(\0162" +
+      "\014.LightStatus*\036\n\013LightStatus\022\006\n\002on\020\000\022\007\n\003" +
+      "off\020\0012u\n\016GymRoomService\0221\n\016changeRoomTem" +
+      "p\022\014.TempRequest\032\r.TempResponse\"\000(\001\0220\n\017tu" +
+      "rnOnOffLights\022\r.LightRequest\032\016.LightResp" +
+      "onseB.\n\025gymRoomControlServiceB\023GymRoomPr" +
+      "otoServiceP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -83,13 +84,13 @@ public final class GymRoomControlServiceImpl {
     internal_static_LightRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LightRequest_descriptor,
-        new java.lang.String[] { "TurnLightOn", });
+        new java.lang.String[] { "TurnLightRequest", });
     internal_static_LightResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_LightResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LightResponse_descriptor,
-        new java.lang.String[] { "TurnLightOff", });
+        new java.lang.String[] { "TurnLightResponse", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

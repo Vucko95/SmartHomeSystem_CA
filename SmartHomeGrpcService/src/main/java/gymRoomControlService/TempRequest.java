@@ -4,10 +4,6 @@
 package gymRoomControlService;
 
 /**
- * <pre>
- * client streaming changeRoomTemp
- * </pre>
- *
  * Protobuf type {@code TempRequest}
  */
 public  final class TempRequest extends
@@ -73,13 +69,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return gymRoomControlService.GymRoomControlServiceImpl.internal_static_TempRequest_descriptor;
+    return gymRoomControlService.GymRoomProtoService.internal_static_TempRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return gymRoomControlService.GymRoomControlServiceImpl.internal_static_TempRequest_fieldAccessorTable
+    return gymRoomControlService.GymRoomProtoService.internal_static_TempRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             gymRoomControlService.TempRequest.class, gymRoomControlService.TempRequest.Builder.class);
   }
@@ -250,10 +246,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * client streaming changeRoomTemp
-   * </pre>
-   *
    * Protobuf type {@code TempRequest}
    */
   public static final class Builder extends
@@ -262,13 +254,13 @@ private static final long serialVersionUID = 0L;
       gymRoomControlService.TempRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return gymRoomControlService.GymRoomControlServiceImpl.internal_static_TempRequest_descriptor;
+      return gymRoomControlService.GymRoomProtoService.internal_static_TempRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return gymRoomControlService.GymRoomControlServiceImpl.internal_static_TempRequest_fieldAccessorTable
+      return gymRoomControlService.GymRoomProtoService.internal_static_TempRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               gymRoomControlService.TempRequest.class, gymRoomControlService.TempRequest.Builder.class);
     }
@@ -299,7 +291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return gymRoomControlService.GymRoomControlServiceImpl.internal_static_TempRequest_descriptor;
+      return gymRoomControlService.GymRoomProtoService.internal_static_TempRequest_descriptor;
     }
 
     @java.lang.Override

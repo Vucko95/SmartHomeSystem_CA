@@ -8,7 +8,11 @@ public interface LightRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool turnLightOn = 1;</code>
+   * <code>.LightStatus turnLightRequest = 1;</code>
    */
-  boolean getTurnLightOn();
+  int getTurnLightRequestValue();
+  /**
+   * <code>.LightStatus turnLightRequest = 1;</code>
+   */
+  gymRoomControlService.LightStatus getTurnLightRequest();
 }

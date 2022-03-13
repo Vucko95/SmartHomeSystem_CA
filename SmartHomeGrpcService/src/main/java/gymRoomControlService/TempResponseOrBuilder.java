@@ -8,12 +8,7 @@ public interface TempResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string tempOutput = 1;</code>
+   * <code>int32 tempOutput = 1;</code>
    */
-  java.lang.String getTempOutput();
-  /**
-   * <code>string tempOutput = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getTempOutputBytes();
+  int getTempOutput();
 }

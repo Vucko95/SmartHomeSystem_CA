@@ -15,45 +15,43 @@ import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
-import io.grpc.stub.StreamObserver;
-
 /**
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
     comments = "Source: gymRoomControlService.proto")
-public final class gymRoomControlServiceGrpc {
+public final class GymRoomServiceGrpc {
 
-  private gymRoomControlServiceGrpc() {}
+  private GymRoomServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "gymRoomControlService";
+  public static final String SERVICE_NAME = "GymRoomService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<gymRoomControlService.TempRequest,
       gymRoomControlService.TempResponse> getChangeRoomTempMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ChangeRoomTemp",
+      fullMethodName = SERVICE_NAME + '/' + "changeRoomTemp",
       requestType = gymRoomControlService.TempRequest.class,
       responseType = gymRoomControlService.TempResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
   public static io.grpc.MethodDescriptor<gymRoomControlService.TempRequest,
       gymRoomControlService.TempResponse> getChangeRoomTempMethod() {
     io.grpc.MethodDescriptor<gymRoomControlService.TempRequest, gymRoomControlService.TempResponse> getChangeRoomTempMethod;
-    if ((getChangeRoomTempMethod = gymRoomControlServiceGrpc.getChangeRoomTempMethod) == null) {
-      synchronized (gymRoomControlServiceGrpc.class) {
-        if ((getChangeRoomTempMethod = gymRoomControlServiceGrpc.getChangeRoomTempMethod) == null) {
-          gymRoomControlServiceGrpc.getChangeRoomTempMethod = getChangeRoomTempMethod = 
+    if ((getChangeRoomTempMethod = GymRoomServiceGrpc.getChangeRoomTempMethod) == null) {
+      synchronized (GymRoomServiceGrpc.class) {
+        if ((getChangeRoomTempMethod = GymRoomServiceGrpc.getChangeRoomTempMethod) == null) {
+          GymRoomServiceGrpc.getChangeRoomTempMethod = getChangeRoomTempMethod = 
               io.grpc.MethodDescriptor.<gymRoomControlService.TempRequest, gymRoomControlService.TempResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "gymRoomControlService", "ChangeRoomTemp"))
+                  "GymRoomService", "changeRoomTemp"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gymRoomControlService.TempRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gymRoomControlService.TempResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new gymRoomControlServiceMethodDescriptorSupplier("ChangeRoomTemp"))
+                  .setSchemaDescriptor(new GymRoomServiceMethodDescriptorSupplier("changeRoomTemp"))
                   .build();
           }
         }
@@ -72,20 +70,20 @@ public final class gymRoomControlServiceGrpc {
   public static io.grpc.MethodDescriptor<gymRoomControlService.LightRequest,
       gymRoomControlService.LightResponse> getTurnOnOffLightsMethod() {
     io.grpc.MethodDescriptor<gymRoomControlService.LightRequest, gymRoomControlService.LightResponse> getTurnOnOffLightsMethod;
-    if ((getTurnOnOffLightsMethod = gymRoomControlServiceGrpc.getTurnOnOffLightsMethod) == null) {
-      synchronized (gymRoomControlServiceGrpc.class) {
-        if ((getTurnOnOffLightsMethod = gymRoomControlServiceGrpc.getTurnOnOffLightsMethod) == null) {
-          gymRoomControlServiceGrpc.getTurnOnOffLightsMethod = getTurnOnOffLightsMethod = 
+    if ((getTurnOnOffLightsMethod = GymRoomServiceGrpc.getTurnOnOffLightsMethod) == null) {
+      synchronized (GymRoomServiceGrpc.class) {
+        if ((getTurnOnOffLightsMethod = GymRoomServiceGrpc.getTurnOnOffLightsMethod) == null) {
+          GymRoomServiceGrpc.getTurnOnOffLightsMethod = getTurnOnOffLightsMethod = 
               io.grpc.MethodDescriptor.<gymRoomControlService.LightRequest, gymRoomControlService.LightResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "gymRoomControlService", "turnOnOffLights"))
+                  "GymRoomService", "turnOnOffLights"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gymRoomControlService.LightRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gymRoomControlService.LightResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new gymRoomControlServiceMethodDescriptorSupplier("turnOnOffLights"))
+                  .setSchemaDescriptor(new GymRoomServiceMethodDescriptorSupplier("turnOnOffLights"))
                   .build();
           }
         }
@@ -96,33 +94,33 @@ public final class gymRoomControlServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static gymRoomControlServiceStub newStub(io.grpc.Channel channel) {
-    return new gymRoomControlServiceStub(channel);
+  public static GymRoomServiceStub newStub(io.grpc.Channel channel) {
+    return new GymRoomServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static gymRoomControlServiceBlockingStub newBlockingStub(
+  public static GymRoomServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new gymRoomControlServiceBlockingStub(channel);
+    return new GymRoomServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static gymRoomControlServiceFutureStub newFutureStub(
+  public static GymRoomServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new gymRoomControlServiceFutureStub(channel);
+    return new GymRoomServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class gymRoomControlServiceImplBase implements io.grpc.BindableService {
+  public static abstract class GymRoomServiceImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
-     * Client Streaming RPC
+     *client streaming
      * </pre>
      */
     public io.grpc.stub.StreamObserver<gymRoomControlService.TempRequest> changeRoomTemp(
@@ -158,31 +156,29 @@ public final class gymRoomControlServiceGrpc {
                   this, METHODID_TURN_ON_OFF_LIGHTS)))
           .build();
     }
-
-	
   }
 
   /**
    */
-  public static final class gymRoomControlServiceStub extends io.grpc.stub.AbstractStub<gymRoomControlServiceStub> {
-    private gymRoomControlServiceStub(io.grpc.Channel channel) {
+  public static final class GymRoomServiceStub extends io.grpc.stub.AbstractStub<GymRoomServiceStub> {
+    private GymRoomServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private gymRoomControlServiceStub(io.grpc.Channel channel,
+    private GymRoomServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected gymRoomControlServiceStub build(io.grpc.Channel channel,
+    protected GymRoomServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new gymRoomControlServiceStub(channel, callOptions);
+      return new GymRoomServiceStub(channel, callOptions);
     }
 
     /**
      * <pre>
-     * Client Streaming RPC
+     *client streaming
      * </pre>
      */
     public io.grpc.stub.StreamObserver<gymRoomControlService.TempRequest> changeRoomTemp(
@@ -205,20 +201,20 @@ public final class gymRoomControlServiceGrpc {
 
   /**
    */
-  public static final class gymRoomControlServiceBlockingStub extends io.grpc.stub.AbstractStub<gymRoomControlServiceBlockingStub> {
-    private gymRoomControlServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class GymRoomServiceBlockingStub extends io.grpc.stub.AbstractStub<GymRoomServiceBlockingStub> {
+    private GymRoomServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private gymRoomControlServiceBlockingStub(io.grpc.Channel channel,
+    private GymRoomServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected gymRoomControlServiceBlockingStub build(io.grpc.Channel channel,
+    protected GymRoomServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new gymRoomControlServiceBlockingStub(channel, callOptions);
+      return new GymRoomServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -234,20 +230,20 @@ public final class gymRoomControlServiceGrpc {
 
   /**
    */
-  public static final class gymRoomControlServiceFutureStub extends io.grpc.stub.AbstractStub<gymRoomControlServiceFutureStub> {
-    private gymRoomControlServiceFutureStub(io.grpc.Channel channel) {
+  public static final class GymRoomServiceFutureStub extends io.grpc.stub.AbstractStub<GymRoomServiceFutureStub> {
+    private GymRoomServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private gymRoomControlServiceFutureStub(io.grpc.Channel channel,
+    private GymRoomServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected gymRoomControlServiceFutureStub build(io.grpc.Channel channel,
+    protected GymRoomServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new gymRoomControlServiceFutureStub(channel, callOptions);
+      return new GymRoomServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -270,10 +266,10 @@ public final class gymRoomControlServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final gymRoomControlServiceImplBase serviceImpl;
+    private final GymRoomServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(gymRoomControlServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(GymRoomServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -305,32 +301,32 @@ public final class gymRoomControlServiceGrpc {
     }
   }
 
-  private static abstract class gymRoomControlServiceBaseDescriptorSupplier
+  private static abstract class GymRoomServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    gymRoomControlServiceBaseDescriptorSupplier() {}
+    GymRoomServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return gymRoomControlService.GymRoomControlServiceImpl.getDescriptor();
+      return gymRoomControlService.GymRoomProtoService.getDescriptor();
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("gymRoomControlService");
+      return getFileDescriptor().findServiceByName("GymRoomService");
     }
   }
 
-  private static final class gymRoomControlServiceFileDescriptorSupplier
-      extends gymRoomControlServiceBaseDescriptorSupplier {
-    gymRoomControlServiceFileDescriptorSupplier() {}
+  private static final class GymRoomServiceFileDescriptorSupplier
+      extends GymRoomServiceBaseDescriptorSupplier {
+    GymRoomServiceFileDescriptorSupplier() {}
   }
 
-  private static final class gymRoomControlServiceMethodDescriptorSupplier
-      extends gymRoomControlServiceBaseDescriptorSupplier
+  private static final class GymRoomServiceMethodDescriptorSupplier
+      extends GymRoomServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    gymRoomControlServiceMethodDescriptorSupplier(String methodName) {
+    GymRoomServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -345,11 +341,11 @@ public final class gymRoomControlServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (gymRoomControlServiceGrpc.class) {
+      synchronized (GymRoomServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new gymRoomControlServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new GymRoomServiceFileDescriptorSupplier())
               .addMethod(getChangeRoomTempMethod())
               .addMethod(getTurnOnOffLightsMethod())
               .build();

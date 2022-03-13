@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private LightResponse() {
-    turnLightOff_ = false;
+    turnLightResponse_ = 0;
   }
 
   @java.lang.Override
@@ -44,8 +44,9 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 8: {
+            int rawValue = input.readEnum();
 
-            turnLightOff_ = input.readBool();
+            turnLightResponse_ = rawValue;
             break;
           }
           default: {
@@ -69,24 +70,32 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return gymRoomControlService.GymRoomControlServiceImpl.internal_static_LightResponse_descriptor;
+    return gymRoomControlService.GymRoomProtoService.internal_static_LightResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return gymRoomControlService.GymRoomControlServiceImpl.internal_static_LightResponse_fieldAccessorTable
+    return gymRoomControlService.GymRoomProtoService.internal_static_LightResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             gymRoomControlService.LightResponse.class, gymRoomControlService.LightResponse.Builder.class);
   }
 
-  public static final int TURNLIGHTOFF_FIELD_NUMBER = 1;
-  private boolean turnLightOff_;
+  public static final int TURNLIGHTRESPONSE_FIELD_NUMBER = 1;
+  private int turnLightResponse_;
   /**
-   * <code>bool turnLightOff = 1;</code>
+   * <code>.LightStatus turnLightResponse = 1;</code>
    */
-  public boolean getTurnLightOff() {
-    return turnLightOff_;
+  public int getTurnLightResponseValue() {
+    return turnLightResponse_;
+  }
+  /**
+   * <code>.LightStatus turnLightResponse = 1;</code>
+   */
+  public gymRoomControlService.LightStatus getTurnLightResponse() {
+    @SuppressWarnings("deprecation")
+    gymRoomControlService.LightStatus result = gymRoomControlService.LightStatus.valueOf(turnLightResponse_);
+    return result == null ? gymRoomControlService.LightStatus.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +112,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (turnLightOff_ != false) {
-      output.writeBool(1, turnLightOff_);
+    if (turnLightResponse_ != gymRoomControlService.LightStatus.on.getNumber()) {
+      output.writeEnum(1, turnLightResponse_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +124,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (turnLightOff_ != false) {
+    if (turnLightResponse_ != gymRoomControlService.LightStatus.on.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(1, turnLightOff_);
+        .computeEnumSize(1, turnLightResponse_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -135,8 +144,7 @@ private static final long serialVersionUID = 0L;
     gymRoomControlService.LightResponse other = (gymRoomControlService.LightResponse) obj;
 
     boolean result = true;
-    result = result && (getTurnLightOff()
-        == other.getTurnLightOff());
+    result = result && turnLightResponse_ == other.turnLightResponse_;
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,9 +156,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TURNLIGHTOFF_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getTurnLightOff());
+    hash = (37 * hash) + TURNLIGHTRESPONSE_FIELD_NUMBER;
+    hash = (53 * hash) + turnLightResponse_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -255,13 +262,13 @@ private static final long serialVersionUID = 0L;
       gymRoomControlService.LightResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return gymRoomControlService.GymRoomControlServiceImpl.internal_static_LightResponse_descriptor;
+      return gymRoomControlService.GymRoomProtoService.internal_static_LightResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return gymRoomControlService.GymRoomControlServiceImpl.internal_static_LightResponse_fieldAccessorTable
+      return gymRoomControlService.GymRoomProtoService.internal_static_LightResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               gymRoomControlService.LightResponse.class, gymRoomControlService.LightResponse.Builder.class);
     }
@@ -284,7 +291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      turnLightOff_ = false;
+      turnLightResponse_ = 0;
 
       return this;
     }
@@ -292,7 +299,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return gymRoomControlService.GymRoomControlServiceImpl.internal_static_LightResponse_descriptor;
+      return gymRoomControlService.GymRoomProtoService.internal_static_LightResponse_descriptor;
     }
 
     @java.lang.Override
@@ -312,7 +319,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public gymRoomControlService.LightResponse buildPartial() {
       gymRoomControlService.LightResponse result = new gymRoomControlService.LightResponse(this);
-      result.turnLightOff_ = turnLightOff_;
+      result.turnLightResponse_ = turnLightResponse_;
       onBuilt();
       return result;
     }
@@ -361,8 +368,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(gymRoomControlService.LightResponse other) {
       if (other == gymRoomControlService.LightResponse.getDefaultInstance()) return this;
-      if (other.getTurnLightOff() != false) {
-        setTurnLightOff(other.getTurnLightOff());
+      if (other.turnLightResponse_ != 0) {
+        setTurnLightResponseValue(other.getTurnLightResponseValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -393,28 +400,47 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean turnLightOff_ ;
+    private int turnLightResponse_ = 0;
     /**
-     * <code>bool turnLightOff = 1;</code>
+     * <code>.LightStatus turnLightResponse = 1;</code>
      */
-    public boolean getTurnLightOff() {
-      return turnLightOff_;
+    public int getTurnLightResponseValue() {
+      return turnLightResponse_;
     }
     /**
-     * <code>bool turnLightOff = 1;</code>
+     * <code>.LightStatus turnLightResponse = 1;</code>
      */
-    public Builder setTurnLightOff(boolean value) {
-      
-      turnLightOff_ = value;
+    public Builder setTurnLightResponseValue(int value) {
+      turnLightResponse_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool turnLightOff = 1;</code>
+     * <code>.LightStatus turnLightResponse = 1;</code>
      */
-    public Builder clearTurnLightOff() {
+    public gymRoomControlService.LightStatus getTurnLightResponse() {
+      @SuppressWarnings("deprecation")
+      gymRoomControlService.LightStatus result = gymRoomControlService.LightStatus.valueOf(turnLightResponse_);
+      return result == null ? gymRoomControlService.LightStatus.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.LightStatus turnLightResponse = 1;</code>
+     */
+    public Builder setTurnLightResponse(gymRoomControlService.LightStatus value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
       
-      turnLightOff_ = false;
+      turnLightResponse_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.LightStatus turnLightResponse = 1;</code>
+     */
+    public Builder clearTurnLightResponse() {
+      
+      turnLightResponse_ = 0;
       onChanged();
       return this;
     }

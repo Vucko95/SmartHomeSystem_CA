@@ -2,9 +2,9 @@ syntax = "proto3";
 
 option java_package = "workoutTrackerService";
 option java_multiple_files = true;
-option java_outer_classname = "WorkoutTrackerServiceImpl";
+option java_outer_classname = "WorkoutTrackerProtoService";
 
-service workoutTrackerService {
+service WorkoutTrackerService {
 
   rpc calorieBurner(WorkoutDetailRequest) returns (WorkoutDetailResponse) {}
   rpc foodIntakeCounter(stream MealRequest) returns (stream MealCaloriesResponse) {}

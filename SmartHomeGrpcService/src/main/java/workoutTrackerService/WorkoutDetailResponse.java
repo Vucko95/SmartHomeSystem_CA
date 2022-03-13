@@ -69,13 +69,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return workoutTrackerService.WorkoutTrackerServiceImpl.internal_static_WorkoutDetailResponse_descriptor;
+    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return workoutTrackerService.WorkoutTrackerServiceImpl.internal_static_WorkoutDetailResponse_fieldAccessorTable
+    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             workoutTrackerService.WorkoutDetailResponse.class, workoutTrackerService.WorkoutDetailResponse.Builder.class);
   }
@@ -254,13 +254,13 @@ private static final long serialVersionUID = 0L;
       workoutTrackerService.WorkoutDetailResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return workoutTrackerService.WorkoutTrackerServiceImpl.internal_static_WorkoutDetailResponse_descriptor;
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return workoutTrackerService.WorkoutTrackerServiceImpl.internal_static_WorkoutDetailResponse_fieldAccessorTable
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               workoutTrackerService.WorkoutDetailResponse.class, workoutTrackerService.WorkoutDetailResponse.Builder.class);
     }
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return workoutTrackerService.WorkoutTrackerServiceImpl.internal_static_WorkoutDetailResponse_descriptor;
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_descriptor;
     }
 
     @java.lang.Override
