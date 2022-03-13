@@ -2,28 +2,32 @@ syntax = "proto3";
 
 option java_package = "gymRoomControlService";
 option java_multiple_files = true;
-option java_outer_classname = "GymRoomControlServiceImpl";
+option java_outer_classname = "GymRoomProtoService";
 
-service gymRoomControlService {
-	// Client Streaming RPC
-	rpc ChangeRoomTemp (stream TempRequest) returns (TempResponse) {}
-	//unary
-	rpc turnOnOffLights (LightRequest) returns (LightResponse) ;
+service GymRoomService {
+  //client streaming
+	rpc changeRoomTemp (stream TempRequest) returns (TempResponse) {}
+
+  //unary
+  rpc turnOnOffLights (LightRequest) returns (LightResponse) ;
 }
 
-
-// client streaming changeRoomTemp
 message TempRequest {
     int32 tempInput = 1;
 }
 message TempResponse {
-    string tempOutput = 1;
+    int32 tempOutput = 1;
+}
+
+enum LightStatus{
+  on = 0;
+  off = 1;
 }
 
 //unary rpc
 message LightRequest {
-    bool turnLightOn = 1;
+  LightStatus turnLightRequest = 1;
 }
 message LightResponse {
-    bool turnLightOff = 1;
+  LightStatus turnLightResponse = 1;
 }
