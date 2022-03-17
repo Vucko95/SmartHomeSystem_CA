@@ -3,6 +3,8 @@
 
 package gymRoomControlService;
 
+import io.grpc.ManagedChannelBuilder;
+
 /**
  * Protobuf type {@code TempRequest}
  */
@@ -428,6 +430,11 @@ private static final long serialVersionUID = 0L;
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
     }
+
+	public ManagedChannelBuilder setIndex(int num1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
     // @@protoc_insertion_point(builder_scope:TempRequest)
