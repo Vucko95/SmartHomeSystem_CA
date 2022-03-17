@@ -47,7 +47,7 @@ public class SmartFridgeServiceCLI {
         }else{
             System.out.println("Invalid Choice");
         }
-//        manageService.awaitTermination(100, null);
+//        manageService.awaitTermination(1000000, null);
 //        manageService.shutdown();
     }
 }
