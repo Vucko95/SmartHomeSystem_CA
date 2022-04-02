@@ -2,19 +2,28 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
-
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-public class GymRoomGUI {
+public class GymRoomGUI implements ActionListener  {
+	
+	private JTextField textNumber1, textResponse;
+	
+	
+	
+	
 	public static void main(String[] args) {
 		GymRoomGUI gui = new GymRoomGUI();
 		gui.build();
@@ -30,7 +39,7 @@ public class GymRoomGUI {
 }
 	private void build() {
 
-		JFrame frame = new JFrame("Service Controller Sample");
+		JFrame frame = new JFrame("GymRoomGUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
@@ -42,8 +51,8 @@ public class GymRoomGUI {
 		
 		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
 
-		panel.add(getService1JPanel());
-		panel.add(getService2JPanel());
+		panel.add(Temp1JPanel());
+		
 
 		
 		frame.setSize(500, 500);
@@ -55,12 +64,36 @@ public class GymRoomGUI {
 	}
 	
 	
-	private JPanel getService1JPanel() {
-		return null;
+	private JPanel Temp1JPanel() {
+		JPanel panel = new JPanel();
+		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
+		JLabel label = new JLabel("Desired Temperature");
+		panel.add(label);
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+		textNumber1 = new JTextField("", 10);
+		panel.add(textNumber1);
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+
+		JButton button = new JButton("Change Temperature");
+		button.addActionListener(this);
+		panel.add(button);
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+
+		textResponse = new JTextField("", 50);
+		textResponse.setEditable(false);
+		panel.add(textResponse);
+
+		panel.setLayout(boxlayout);
+
+		return panel;
+		
+		
 		}
-	private JPanel getService2JPanel() {
-		return null;
-		}
+	
+	public void actionPerformed(ActionEvent e) {}
+	
+		
+
 	
 
 }// class GymRoomGUi
