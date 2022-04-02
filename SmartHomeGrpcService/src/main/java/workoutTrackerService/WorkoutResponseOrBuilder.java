@@ -3,8 +3,8 @@
 
 package workoutTrackerService;
 
-public interface WorkoutDetailRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:WorkoutDetailRequest)
+public interface WorkoutResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:WorkoutResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,7 +18,7 @@ public interface WorkoutDetailRequestOrBuilder extends
       getWorkoutNameBytes();
 
   /**
-   * <code>double duration = 3;</code>
+   * <code>int32 calorie_amount = 3;</code>
    */
-  double getDuration();
+  int getCalorieAmount();
 }

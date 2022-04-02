@@ -15,25 +15,15 @@ public final class WorkoutTrackerProtoService {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MealRequest_descriptor;
+    internal_static_WorkoutRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MealRequest_fieldAccessorTable;
+      internal_static_WorkoutRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MealCaloriesResponse_descriptor;
+    internal_static_WorkoutResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_MealCaloriesResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_WorkoutDetailRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_WorkoutDetailRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_WorkoutDetailResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_WorkoutDetailResponse_fieldAccessorTable;
+      internal_static_WorkoutResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,18 +33,14 @@ public final class WorkoutTrackerProtoService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\033workoutTrackerService.proto\",\n\013MealReq" +
-      "uest\022\014\n\004meal\030\001 \001(\t\022\017\n\007serving\030\002 \001(\005\"-\n\024M" +
-      "ealCaloriesResponse\022\025\n\rdailyCalories\030\001 \001" +
-      "(\005\">\n\024WorkoutDetailRequest\022\024\n\014workout_na" +
-      "me\030\001 \001(\t\022\020\n\010duration\030\003 \001(\001\"/\n\025WorkoutDet" +
-      "ailResponse\022\026\n\016burnedCalories\030\001 \001(\0052\231\001\n\025" +
-      "WorkoutTrackerService\022@\n\rcalorieBurner\022\025" +
-      ".WorkoutDetailRequest\032\026.WorkoutDetailRes" +
-      "ponse\"\000\022>\n\021foodIntakeCounter\022\014.MealReque" +
-      "st\032\025.MealCaloriesResponse\"\000(\0010\001B5\n\025worko" +
-      "utTrackerServiceB\032WorkoutTrackerProtoSer" +
-      "viceP\001b\006proto3"
+      "\n\033workoutTrackerService.proto\";\n\016Workout" +
+      "Request\022\024\n\014workout_name\030\001 \001(\t\022\023\n\013allOrSi" +
+      "ngle\030\004 \001(\010\"?\n\017WorkoutResponse\022\024\n\014workout" +
+      "_name\030\001 \001(\t\022\026\n\016calorie_amount\030\003 \001(\0052O\n\025W" +
+      "orkoutTrackerService\0226\n\013WorkoutList\022\017.Wo" +
+      "rkoutRequest\032\020.WorkoutResponse\"\000(\0010\001B5\n\025" +
+      "workoutTrackerServiceB\032WorkoutTrackerPro" +
+      "toServiceP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -68,30 +54,18 @@ public final class WorkoutTrackerProtoService {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_MealRequest_descriptor =
+    internal_static_WorkoutRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_MealRequest_fieldAccessorTable = new
+    internal_static_WorkoutRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MealRequest_descriptor,
-        new java.lang.String[] { "Meal", "Serving", });
-    internal_static_MealCaloriesResponse_descriptor =
+        internal_static_WorkoutRequest_descriptor,
+        new java.lang.String[] { "WorkoutName", "AllOrSingle", });
+    internal_static_WorkoutResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_MealCaloriesResponse_fieldAccessorTable = new
+    internal_static_WorkoutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_MealCaloriesResponse_descriptor,
-        new java.lang.String[] { "DailyCalories", });
-    internal_static_WorkoutDetailRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_WorkoutDetailRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_WorkoutDetailRequest_descriptor,
-        new java.lang.String[] { "WorkoutName", "Duration", });
-    internal_static_WorkoutDetailResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_WorkoutDetailResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_WorkoutDetailResponse_descriptor,
-        new java.lang.String[] { "BurnedCalories", });
+        internal_static_WorkoutResponse_descriptor,
+        new java.lang.String[] { "WorkoutName", "CalorieAmount", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

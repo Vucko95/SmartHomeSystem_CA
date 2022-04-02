@@ -4,20 +4,20 @@
 package workoutTrackerService;
 
 /**
- * Protobuf type {@code WorkoutDetailRequest}
+ * Protobuf type {@code WorkoutRequest}
  */
-public  final class WorkoutDetailRequest extends
+public  final class WorkoutRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:WorkoutDetailRequest)
-    WorkoutDetailRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:WorkoutRequest)
+    WorkoutRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use WorkoutDetailRequest.newBuilder() to construct.
-  private WorkoutDetailRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use WorkoutRequest.newBuilder() to construct.
+  private WorkoutRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private WorkoutDetailRequest() {
+  private WorkoutRequest() {
     workoutName_ = "";
-    duration_ = 0D;
+    allOrSingle_ = false;
   }
 
   @java.lang.Override
@@ -25,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WorkoutDetailRequest(
+  private WorkoutRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,9 +50,9 @@ private static final long serialVersionUID = 0L;
             workoutName_ = s;
             break;
           }
-          case 25: {
+          case 32: {
 
-            duration_ = input.readDouble();
+            allOrSingle_ = input.readBool();
             break;
           }
           default: {
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailRequest_descriptor;
+    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailRequest_fieldAccessorTable
+    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            workoutTrackerService.WorkoutDetailRequest.class, workoutTrackerService.WorkoutDetailRequest.Builder.class);
+            workoutTrackerService.WorkoutRequest.class, workoutTrackerService.WorkoutRequest.Builder.class);
   }
 
   public static final int WORKOUT_NAME_FIELD_NUMBER = 1;
@@ -121,13 +121,13 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DURATION_FIELD_NUMBER = 3;
-  private double duration_;
+  public static final int ALLORSINGLE_FIELD_NUMBER = 4;
+  private boolean allOrSingle_;
   /**
-   * <code>double duration = 3;</code>
+   * <code>bool allOrSingle = 4;</code>
    */
-  public double getDuration() {
-    return duration_;
+  public boolean getAllOrSingle() {
+    return allOrSingle_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -147,8 +147,8 @@ private static final long serialVersionUID = 0L;
     if (!getWorkoutNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, workoutName_);
     }
-    if (duration_ != 0D) {
-      output.writeDouble(3, duration_);
+    if (allOrSingle_ != false) {
+      output.writeBool(4, allOrSingle_);
     }
     unknownFields.writeTo(output);
   }
@@ -162,9 +162,9 @@ private static final long serialVersionUID = 0L;
     if (!getWorkoutNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, workoutName_);
     }
-    if (duration_ != 0D) {
+    if (allOrSingle_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, duration_);
+        .computeBoolSize(4, allOrSingle_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -176,18 +176,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof workoutTrackerService.WorkoutDetailRequest)) {
+    if (!(obj instanceof workoutTrackerService.WorkoutRequest)) {
       return super.equals(obj);
     }
-    workoutTrackerService.WorkoutDetailRequest other = (workoutTrackerService.WorkoutDetailRequest) obj;
+    workoutTrackerService.WorkoutRequest other = (workoutTrackerService.WorkoutRequest) obj;
 
     boolean result = true;
     result = result && getWorkoutName()
         .equals(other.getWorkoutName());
-    result = result && (
-        java.lang.Double.doubleToLongBits(getDuration())
-        == java.lang.Double.doubleToLongBits(
-            other.getDuration()));
+    result = result && (getAllOrSingle()
+        == other.getAllOrSingle());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -201,77 +199,77 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + WORKOUT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getWorkoutName().hashCode();
-    hash = (37 * hash) + DURATION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getDuration()));
+    hash = (37 * hash) + ALLORSINGLE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getAllOrSingle());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(byte[] data)
+  public static workoutTrackerService.WorkoutRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(java.io.InputStream input)
+  public static workoutTrackerService.WorkoutRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseDelimitedFrom(java.io.InputStream input)
+  public static workoutTrackerService.WorkoutRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseDelimitedFrom(
+  public static workoutTrackerService.WorkoutRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static workoutTrackerService.WorkoutDetailRequest parseFrom(
+  public static workoutTrackerService.WorkoutRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -284,7 +282,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(workoutTrackerService.WorkoutDetailRequest prototype) {
+  public static Builder newBuilder(workoutTrackerService.WorkoutRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -300,26 +298,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code WorkoutDetailRequest}
+   * Protobuf type {@code WorkoutRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:WorkoutDetailRequest)
-      workoutTrackerService.WorkoutDetailRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:WorkoutRequest)
+      workoutTrackerService.WorkoutRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailRequest_descriptor;
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailRequest_fieldAccessorTable
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              workoutTrackerService.WorkoutDetailRequest.class, workoutTrackerService.WorkoutDetailRequest.Builder.class);
+              workoutTrackerService.WorkoutRequest.class, workoutTrackerService.WorkoutRequest.Builder.class);
     }
 
-    // Construct using workoutTrackerService.WorkoutDetailRequest.newBuilder()
+    // Construct using workoutTrackerService.WorkoutRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -339,7 +337,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       workoutName_ = "";
 
-      duration_ = 0D;
+      allOrSingle_ = false;
 
       return this;
     }
@@ -347,17 +345,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailRequest_descriptor;
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutRequest_descriptor;
     }
 
     @java.lang.Override
-    public workoutTrackerService.WorkoutDetailRequest getDefaultInstanceForType() {
-      return workoutTrackerService.WorkoutDetailRequest.getDefaultInstance();
+    public workoutTrackerService.WorkoutRequest getDefaultInstanceForType() {
+      return workoutTrackerService.WorkoutRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public workoutTrackerService.WorkoutDetailRequest build() {
-      workoutTrackerService.WorkoutDetailRequest result = buildPartial();
+    public workoutTrackerService.WorkoutRequest build() {
+      workoutTrackerService.WorkoutRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -365,10 +363,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public workoutTrackerService.WorkoutDetailRequest buildPartial() {
-      workoutTrackerService.WorkoutDetailRequest result = new workoutTrackerService.WorkoutDetailRequest(this);
+    public workoutTrackerService.WorkoutRequest buildPartial() {
+      workoutTrackerService.WorkoutRequest result = new workoutTrackerService.WorkoutRequest(this);
       result.workoutName_ = workoutName_;
-      result.duration_ = duration_;
+      result.allOrSingle_ = allOrSingle_;
       onBuilt();
       return result;
     }
@@ -407,22 +405,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof workoutTrackerService.WorkoutDetailRequest) {
-        return mergeFrom((workoutTrackerService.WorkoutDetailRequest)other);
+      if (other instanceof workoutTrackerService.WorkoutRequest) {
+        return mergeFrom((workoutTrackerService.WorkoutRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(workoutTrackerService.WorkoutDetailRequest other) {
-      if (other == workoutTrackerService.WorkoutDetailRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(workoutTrackerService.WorkoutRequest other) {
+      if (other == workoutTrackerService.WorkoutRequest.getDefaultInstance()) return this;
       if (!other.getWorkoutName().isEmpty()) {
         workoutName_ = other.workoutName_;
         onChanged();
       }
-      if (other.getDuration() != 0D) {
-        setDuration(other.getDuration());
+      if (other.getAllOrSingle() != false) {
+        setAllOrSingle(other.getAllOrSingle());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -439,11 +437,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      workoutTrackerService.WorkoutDetailRequest parsedMessage = null;
+      workoutTrackerService.WorkoutRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (workoutTrackerService.WorkoutDetailRequest) e.getUnfinishedMessage();
+        parsedMessage = (workoutTrackerService.WorkoutRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -522,28 +520,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double duration_ ;
+    private boolean allOrSingle_ ;
     /**
-     * <code>double duration = 3;</code>
+     * <code>bool allOrSingle = 4;</code>
      */
-    public double getDuration() {
-      return duration_;
+    public boolean getAllOrSingle() {
+      return allOrSingle_;
     }
     /**
-     * <code>double duration = 3;</code>
+     * <code>bool allOrSingle = 4;</code>
      */
-    public Builder setDuration(double value) {
+    public Builder setAllOrSingle(boolean value) {
       
-      duration_ = value;
+      allOrSingle_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double duration = 3;</code>
+     * <code>bool allOrSingle = 4;</code>
      */
-    public Builder clearDuration() {
+    public Builder clearAllOrSingle() {
       
-      duration_ = 0D;
+      allOrSingle_ = false;
       onChanged();
       return this;
     }
@@ -560,41 +558,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:WorkoutDetailRequest)
+    // @@protoc_insertion_point(builder_scope:WorkoutRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:WorkoutDetailRequest)
-  private static final workoutTrackerService.WorkoutDetailRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:WorkoutRequest)
+  private static final workoutTrackerService.WorkoutRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new workoutTrackerService.WorkoutDetailRequest();
+    DEFAULT_INSTANCE = new workoutTrackerService.WorkoutRequest();
   }
 
-  public static workoutTrackerService.WorkoutDetailRequest getDefaultInstance() {
+  public static workoutTrackerService.WorkoutRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<WorkoutDetailRequest>
-      PARSER = new com.google.protobuf.AbstractParser<WorkoutDetailRequest>() {
+  private static final com.google.protobuf.Parser<WorkoutRequest>
+      PARSER = new com.google.protobuf.AbstractParser<WorkoutRequest>() {
     @java.lang.Override
-    public WorkoutDetailRequest parsePartialFrom(
+    public WorkoutRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WorkoutDetailRequest(input, extensionRegistry);
+      return new WorkoutRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<WorkoutDetailRequest> parser() {
+  public static com.google.protobuf.Parser<WorkoutRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<WorkoutDetailRequest> getParserForType() {
+  public com.google.protobuf.Parser<WorkoutRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public workoutTrackerService.WorkoutDetailRequest getDefaultInstanceForType() {
+  public workoutTrackerService.WorkoutRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

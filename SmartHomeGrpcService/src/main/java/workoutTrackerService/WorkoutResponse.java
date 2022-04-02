@@ -4,19 +4,20 @@
 package workoutTrackerService;
 
 /**
- * Protobuf type {@code WorkoutDetailResponse}
+ * Protobuf type {@code WorkoutResponse}
  */
-public  final class WorkoutDetailResponse extends
+public  final class WorkoutResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:WorkoutDetailResponse)
-    WorkoutDetailResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:WorkoutResponse)
+    WorkoutResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use WorkoutDetailResponse.newBuilder() to construct.
-  private WorkoutDetailResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use WorkoutResponse.newBuilder() to construct.
+  private WorkoutResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private WorkoutDetailResponse() {
-    burnedCalories_ = 0;
+  private WorkoutResponse() {
+    workoutName_ = "";
+    calorieAmount_ = 0;
   }
 
   @java.lang.Override
@@ -24,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WorkoutDetailResponse(
+  private WorkoutResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -43,9 +44,15 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            burnedCalories_ = input.readInt32();
+            workoutName_ = s;
+            break;
+          }
+          case 24: {
+
+            calorieAmount_ = input.readInt32();
             break;
           }
           default: {
@@ -69,24 +76,58 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_descriptor;
+    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_fieldAccessorTable
+    return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            workoutTrackerService.WorkoutDetailResponse.class, workoutTrackerService.WorkoutDetailResponse.Builder.class);
+            workoutTrackerService.WorkoutResponse.class, workoutTrackerService.WorkoutResponse.Builder.class);
   }
 
-  public static final int BURNEDCALORIES_FIELD_NUMBER = 1;
-  private int burnedCalories_;
+  public static final int WORKOUT_NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object workoutName_;
   /**
-   * <code>int32 burnedCalories = 1;</code>
+   * <code>string workout_name = 1;</code>
    */
-  public int getBurnedCalories() {
-    return burnedCalories_;
+  public java.lang.String getWorkoutName() {
+    java.lang.Object ref = workoutName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      workoutName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string workout_name = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getWorkoutNameBytes() {
+    java.lang.Object ref = workoutName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      workoutName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CALORIE_AMOUNT_FIELD_NUMBER = 3;
+  private int calorieAmount_;
+  /**
+   * <code>int32 calorie_amount = 3;</code>
+   */
+  public int getCalorieAmount() {
+    return calorieAmount_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +144,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (burnedCalories_ != 0) {
-      output.writeInt32(1, burnedCalories_);
+    if (!getWorkoutNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, workoutName_);
+    }
+    if (calorieAmount_ != 0) {
+      output.writeInt32(3, calorieAmount_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +159,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (burnedCalories_ != 0) {
+    if (!getWorkoutNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, workoutName_);
+    }
+    if (calorieAmount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, burnedCalories_);
+        .computeInt32Size(3, calorieAmount_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -129,14 +176,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof workoutTrackerService.WorkoutDetailResponse)) {
+    if (!(obj instanceof workoutTrackerService.WorkoutResponse)) {
       return super.equals(obj);
     }
-    workoutTrackerService.WorkoutDetailResponse other = (workoutTrackerService.WorkoutDetailResponse) obj;
+    workoutTrackerService.WorkoutResponse other = (workoutTrackerService.WorkoutResponse) obj;
 
     boolean result = true;
-    result = result && (getBurnedCalories()
-        == other.getBurnedCalories());
+    result = result && getWorkoutName()
+        .equals(other.getWorkoutName());
+    result = result && (getCalorieAmount()
+        == other.getCalorieAmount());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,76 +197,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + BURNEDCALORIES_FIELD_NUMBER;
-    hash = (53 * hash) + getBurnedCalories();
+    hash = (37 * hash) + WORKOUT_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getWorkoutName().hashCode();
+    hash = (37 * hash) + CALORIE_AMOUNT_FIELD_NUMBER;
+    hash = (53 * hash) + getCalorieAmount();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(byte[] data)
+  public static workoutTrackerService.WorkoutResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(java.io.InputStream input)
+  public static workoutTrackerService.WorkoutResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseDelimitedFrom(java.io.InputStream input)
+  public static workoutTrackerService.WorkoutResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseDelimitedFrom(
+  public static workoutTrackerService.WorkoutResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static workoutTrackerService.WorkoutDetailResponse parseFrom(
+  public static workoutTrackerService.WorkoutResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,7 +281,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(workoutTrackerService.WorkoutDetailResponse prototype) {
+  public static Builder newBuilder(workoutTrackerService.WorkoutResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -246,26 +297,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code WorkoutDetailResponse}
+   * Protobuf type {@code WorkoutResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:WorkoutDetailResponse)
-      workoutTrackerService.WorkoutDetailResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:WorkoutResponse)
+      workoutTrackerService.WorkoutResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_descriptor;
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_fieldAccessorTable
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              workoutTrackerService.WorkoutDetailResponse.class, workoutTrackerService.WorkoutDetailResponse.Builder.class);
+              workoutTrackerService.WorkoutResponse.class, workoutTrackerService.WorkoutResponse.Builder.class);
     }
 
-    // Construct using workoutTrackerService.WorkoutDetailResponse.newBuilder()
+    // Construct using workoutTrackerService.WorkoutResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -283,7 +334,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      burnedCalories_ = 0;
+      workoutName_ = "";
+
+      calorieAmount_ = 0;
 
       return this;
     }
@@ -291,17 +344,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutDetailResponse_descriptor;
+      return workoutTrackerService.WorkoutTrackerProtoService.internal_static_WorkoutResponse_descriptor;
     }
 
     @java.lang.Override
-    public workoutTrackerService.WorkoutDetailResponse getDefaultInstanceForType() {
-      return workoutTrackerService.WorkoutDetailResponse.getDefaultInstance();
+    public workoutTrackerService.WorkoutResponse getDefaultInstanceForType() {
+      return workoutTrackerService.WorkoutResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public workoutTrackerService.WorkoutDetailResponse build() {
-      workoutTrackerService.WorkoutDetailResponse result = buildPartial();
+    public workoutTrackerService.WorkoutResponse build() {
+      workoutTrackerService.WorkoutResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -309,9 +362,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public workoutTrackerService.WorkoutDetailResponse buildPartial() {
-      workoutTrackerService.WorkoutDetailResponse result = new workoutTrackerService.WorkoutDetailResponse(this);
-      result.burnedCalories_ = burnedCalories_;
+    public workoutTrackerService.WorkoutResponse buildPartial() {
+      workoutTrackerService.WorkoutResponse result = new workoutTrackerService.WorkoutResponse(this);
+      result.workoutName_ = workoutName_;
+      result.calorieAmount_ = calorieAmount_;
       onBuilt();
       return result;
     }
@@ -350,18 +404,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof workoutTrackerService.WorkoutDetailResponse) {
-        return mergeFrom((workoutTrackerService.WorkoutDetailResponse)other);
+      if (other instanceof workoutTrackerService.WorkoutResponse) {
+        return mergeFrom((workoutTrackerService.WorkoutResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(workoutTrackerService.WorkoutDetailResponse other) {
-      if (other == workoutTrackerService.WorkoutDetailResponse.getDefaultInstance()) return this;
-      if (other.getBurnedCalories() != 0) {
-        setBurnedCalories(other.getBurnedCalories());
+    public Builder mergeFrom(workoutTrackerService.WorkoutResponse other) {
+      if (other == workoutTrackerService.WorkoutResponse.getDefaultInstance()) return this;
+      if (!other.getWorkoutName().isEmpty()) {
+        workoutName_ = other.workoutName_;
+        onChanged();
+      }
+      if (other.getCalorieAmount() != 0) {
+        setCalorieAmount(other.getCalorieAmount());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -378,11 +436,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      workoutTrackerService.WorkoutDetailResponse parsedMessage = null;
+      workoutTrackerService.WorkoutResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (workoutTrackerService.WorkoutDetailResponse) e.getUnfinishedMessage();
+        parsedMessage = (workoutTrackerService.WorkoutResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -392,28 +450,97 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int burnedCalories_ ;
+    private java.lang.Object workoutName_ = "";
     /**
-     * <code>int32 burnedCalories = 1;</code>
+     * <code>string workout_name = 1;</code>
      */
-    public int getBurnedCalories() {
-      return burnedCalories_;
+    public java.lang.String getWorkoutName() {
+      java.lang.Object ref = workoutName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workoutName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 burnedCalories = 1;</code>
+     * <code>string workout_name = 1;</code>
      */
-    public Builder setBurnedCalories(int value) {
-      
-      burnedCalories_ = value;
+    public com.google.protobuf.ByteString
+        getWorkoutNameBytes() {
+      java.lang.Object ref = workoutName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workoutName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string workout_name = 1;</code>
+     */
+    public Builder setWorkoutName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      workoutName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 burnedCalories = 1;</code>
+     * <code>string workout_name = 1;</code>
      */
-    public Builder clearBurnedCalories() {
+    public Builder clearWorkoutName() {
       
-      burnedCalories_ = 0;
+      workoutName_ = getDefaultInstance().getWorkoutName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string workout_name = 1;</code>
+     */
+    public Builder setWorkoutNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      workoutName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int calorieAmount_ ;
+    /**
+     * <code>int32 calorie_amount = 3;</code>
+     */
+    public int getCalorieAmount() {
+      return calorieAmount_;
+    }
+    /**
+     * <code>int32 calorie_amount = 3;</code>
+     */
+    public Builder setCalorieAmount(int value) {
+      
+      calorieAmount_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 calorie_amount = 3;</code>
+     */
+    public Builder clearCalorieAmount() {
+      
+      calorieAmount_ = 0;
       onChanged();
       return this;
     }
@@ -430,41 +557,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:WorkoutDetailResponse)
+    // @@protoc_insertion_point(builder_scope:WorkoutResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:WorkoutDetailResponse)
-  private static final workoutTrackerService.WorkoutDetailResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:WorkoutResponse)
+  private static final workoutTrackerService.WorkoutResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new workoutTrackerService.WorkoutDetailResponse();
+    DEFAULT_INSTANCE = new workoutTrackerService.WorkoutResponse();
   }
 
-  public static workoutTrackerService.WorkoutDetailResponse getDefaultInstance() {
+  public static workoutTrackerService.WorkoutResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<WorkoutDetailResponse>
-      PARSER = new com.google.protobuf.AbstractParser<WorkoutDetailResponse>() {
+  private static final com.google.protobuf.Parser<WorkoutResponse>
+      PARSER = new com.google.protobuf.AbstractParser<WorkoutResponse>() {
     @java.lang.Override
-    public WorkoutDetailResponse parsePartialFrom(
+    public WorkoutResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WorkoutDetailResponse(input, extensionRegistry);
+      return new WorkoutResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<WorkoutDetailResponse> parser() {
+  public static com.google.protobuf.Parser<WorkoutResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<WorkoutDetailResponse> getParserForType() {
+  public com.google.protobuf.Parser<WorkoutResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public workoutTrackerService.WorkoutDetailResponse getDefaultInstanceForType() {
+  public workoutTrackerService.WorkoutResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

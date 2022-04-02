@@ -27,68 +27,36 @@ public final class WorkoutTrackerServiceGrpc {
   public static final String SERVICE_NAME = "WorkoutTrackerService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<workoutTrackerService.WorkoutDetailRequest,
-      workoutTrackerService.WorkoutDetailResponse> getCalorieBurnerMethod;
+  private static volatile io.grpc.MethodDescriptor<workoutTrackerService.WorkoutRequest,
+      workoutTrackerService.WorkoutResponse> getWorkoutListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "calorieBurner",
-      requestType = workoutTrackerService.WorkoutDetailRequest.class,
-      responseType = workoutTrackerService.WorkoutDetailResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<workoutTrackerService.WorkoutDetailRequest,
-      workoutTrackerService.WorkoutDetailResponse> getCalorieBurnerMethod() {
-    io.grpc.MethodDescriptor<workoutTrackerService.WorkoutDetailRequest, workoutTrackerService.WorkoutDetailResponse> getCalorieBurnerMethod;
-    if ((getCalorieBurnerMethod = WorkoutTrackerServiceGrpc.getCalorieBurnerMethod) == null) {
-      synchronized (WorkoutTrackerServiceGrpc.class) {
-        if ((getCalorieBurnerMethod = WorkoutTrackerServiceGrpc.getCalorieBurnerMethod) == null) {
-          WorkoutTrackerServiceGrpc.getCalorieBurnerMethod = getCalorieBurnerMethod = 
-              io.grpc.MethodDescriptor.<workoutTrackerService.WorkoutDetailRequest, workoutTrackerService.WorkoutDetailResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "WorkoutTrackerService", "calorieBurner"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  workoutTrackerService.WorkoutDetailRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  workoutTrackerService.WorkoutDetailResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new WorkoutTrackerServiceMethodDescriptorSupplier("calorieBurner"))
-                  .build();
-          }
-        }
-     }
-     return getCalorieBurnerMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<workoutTrackerService.MealRequest,
-      workoutTrackerService.MealCaloriesResponse> getFoodIntakeCounterMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "foodIntakeCounter",
-      requestType = workoutTrackerService.MealRequest.class,
-      responseType = workoutTrackerService.MealCaloriesResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "WorkoutList",
+      requestType = workoutTrackerService.WorkoutRequest.class,
+      responseType = workoutTrackerService.WorkoutResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<workoutTrackerService.MealRequest,
-      workoutTrackerService.MealCaloriesResponse> getFoodIntakeCounterMethod() {
-    io.grpc.MethodDescriptor<workoutTrackerService.MealRequest, workoutTrackerService.MealCaloriesResponse> getFoodIntakeCounterMethod;
-    if ((getFoodIntakeCounterMethod = WorkoutTrackerServiceGrpc.getFoodIntakeCounterMethod) == null) {
+  public static io.grpc.MethodDescriptor<workoutTrackerService.WorkoutRequest,
+      workoutTrackerService.WorkoutResponse> getWorkoutListMethod() {
+    io.grpc.MethodDescriptor<workoutTrackerService.WorkoutRequest, workoutTrackerService.WorkoutResponse> getWorkoutListMethod;
+    if ((getWorkoutListMethod = WorkoutTrackerServiceGrpc.getWorkoutListMethod) == null) {
       synchronized (WorkoutTrackerServiceGrpc.class) {
-        if ((getFoodIntakeCounterMethod = WorkoutTrackerServiceGrpc.getFoodIntakeCounterMethod) == null) {
-          WorkoutTrackerServiceGrpc.getFoodIntakeCounterMethod = getFoodIntakeCounterMethod = 
-              io.grpc.MethodDescriptor.<workoutTrackerService.MealRequest, workoutTrackerService.MealCaloriesResponse>newBuilder()
+        if ((getWorkoutListMethod = WorkoutTrackerServiceGrpc.getWorkoutListMethod) == null) {
+          WorkoutTrackerServiceGrpc.getWorkoutListMethod = getWorkoutListMethod = 
+              io.grpc.MethodDescriptor.<workoutTrackerService.WorkoutRequest, workoutTrackerService.WorkoutResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "WorkoutTrackerService", "foodIntakeCounter"))
+                  "WorkoutTrackerService", "WorkoutList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  workoutTrackerService.MealRequest.getDefaultInstance()))
+                  workoutTrackerService.WorkoutRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  workoutTrackerService.MealCaloriesResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new WorkoutTrackerServiceMethodDescriptorSupplier("foodIntakeCounter"))
+                  workoutTrackerService.WorkoutResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new WorkoutTrackerServiceMethodDescriptorSupplier("WorkoutList"))
                   .build();
           }
         }
      }
-     return getFoodIntakeCounterMethod;
+     return getWorkoutListMethod;
   }
 
   /**
@@ -120,34 +88,20 @@ public final class WorkoutTrackerServiceGrpc {
 
     /**
      */
-    public void calorieBurner(workoutTrackerService.WorkoutDetailRequest request,
-        io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutDetailResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getCalorieBurnerMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public io.grpc.stub.StreamObserver<workoutTrackerService.MealRequest> foodIntakeCounter(
-        io.grpc.stub.StreamObserver<workoutTrackerService.MealCaloriesResponse> responseObserver) {
-      return asyncUnimplementedStreamingCall(getFoodIntakeCounterMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutRequest> workoutList(
+        io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getWorkoutListMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getCalorieBurnerMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                workoutTrackerService.WorkoutDetailRequest,
-                workoutTrackerService.WorkoutDetailResponse>(
-                  this, METHODID_CALORIE_BURNER)))
-          .addMethod(
-            getFoodIntakeCounterMethod(),
+            getWorkoutListMethod(),
             asyncBidiStreamingCall(
               new MethodHandlers<
-                workoutTrackerService.MealRequest,
-                workoutTrackerService.MealCaloriesResponse>(
-                  this, METHODID_FOOD_INTAKE_COUNTER)))
+                workoutTrackerService.WorkoutRequest,
+                workoutTrackerService.WorkoutResponse>(
+                  this, METHODID_WORKOUT_LIST)))
           .build();
     }
   }
@@ -172,18 +126,10 @@ public final class WorkoutTrackerServiceGrpc {
 
     /**
      */
-    public void calorieBurner(workoutTrackerService.WorkoutDetailRequest request,
-        io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutDetailResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getCalorieBurnerMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public io.grpc.stub.StreamObserver<workoutTrackerService.MealRequest> foodIntakeCounter(
-        io.grpc.stub.StreamObserver<workoutTrackerService.MealCaloriesResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutRequest> workoutList(
+        io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutResponse> responseObserver) {
       return asyncBidiStreamingCall(
-          getChannel().newCall(getFoodIntakeCounterMethod(), getCallOptions()), responseObserver);
+          getChannel().newCall(getWorkoutListMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -204,13 +150,6 @@ public final class WorkoutTrackerServiceGrpc {
         io.grpc.CallOptions callOptions) {
       return new WorkoutTrackerServiceBlockingStub(channel, callOptions);
     }
-
-    /**
-     */
-    public workoutTrackerService.WorkoutDetailResponse calorieBurner(workoutTrackerService.WorkoutDetailRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getCalorieBurnerMethod(), getCallOptions(), request);
-    }
   }
 
   /**
@@ -230,18 +169,9 @@ public final class WorkoutTrackerServiceGrpc {
         io.grpc.CallOptions callOptions) {
       return new WorkoutTrackerServiceFutureStub(channel, callOptions);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<workoutTrackerService.WorkoutDetailResponse> calorieBurner(
-        workoutTrackerService.WorkoutDetailRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getCalorieBurnerMethod(), getCallOptions()), request);
-    }
   }
 
-  private static final int METHODID_CALORIE_BURNER = 0;
-  private static final int METHODID_FOOD_INTAKE_COUNTER = 1;
+  private static final int METHODID_WORKOUT_LIST = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -260,10 +190,6 @@ public final class WorkoutTrackerServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_CALORIE_BURNER:
-          serviceImpl.calorieBurner((workoutTrackerService.WorkoutDetailRequest) request,
-              (io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutDetailResponse>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -274,9 +200,9 @@ public final class WorkoutTrackerServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_FOOD_INTAKE_COUNTER:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.foodIntakeCounter(
-              (io.grpc.stub.StreamObserver<workoutTrackerService.MealCaloriesResponse>) responseObserver);
+        case METHODID_WORKOUT_LIST:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.workoutList(
+              (io.grpc.stub.StreamObserver<workoutTrackerService.WorkoutResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -328,8 +254,7 @@ public final class WorkoutTrackerServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new WorkoutTrackerServiceFileDescriptorSupplier())
-              .addMethod(getCalorieBurnerMethod())
-              .addMethod(getFoodIntakeCounterMethod())
+              .addMethod(getWorkoutListMethod())
               .build();
         }
       }
