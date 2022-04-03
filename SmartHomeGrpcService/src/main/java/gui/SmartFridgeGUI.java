@@ -18,58 +18,27 @@ import javax.swing.border.EmptyBorder;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import smartFridgeService.ProductRequest;
+import smartFridgeService.ProductRequestNoParam;
+import smartFridgeService.ProductResponse;
+import smartFridgeService.SmartFridgeServiceGrpc;
 
-public class SmartFridgeGUI  implements ActionListener {
+public class SmartFridgeGUI implements ActionListener {
+
 	private JComboBox<String> request1;
 	private JLabel response1;
-	private JLabel response2;
-	private JTextArea textResponse;
-	private ManagedChannel manageService2;
-	public static void main(String[] args) {
-		SmartFridgeGUI gui = new SmartFridgeGUI();
-		gui.build();
 
-	}
+	private JTextArea textResponse2;
+	private ManagedChannel manageService2;
 
 	public SmartFridgeGUI() {
-		
-		int port = 50052;
-		String host = "localhost";
-		manageService2 = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
-}
-	
-	
-	private void build () {
-		
-		JFrame frame = new JFrame("Smart Fridge GUI");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel panel = new JPanel();
-
-	
-		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
-		panel.setLayout(boxlayout);
-
-		
-		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
-
-		panel.add(FridgPanel1());
-		panel.add(FridgPanel2());
-		
-		frame.setSize(500, 500);
-
-		
-		frame.add(panel);
-		frame.pack();
-		frame.setVisible(true);	
-		
+		manageService2 = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
 	}
-	
-	
-	private JPanel FridgPanel1() {
+
+	private JPanel getJPanelOne() {
 		JPanel panel = new JPanel();
 		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
-		JLabel label = new JLabel("Check Product in Smart Fridge");
+		JLabel label = new JLabel("Fridge");
 		panel.add(label);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
 		
@@ -90,28 +59,70 @@ public class SmartFridgeGUI  implements ActionListener {
 		return panel;
 
 	}
-	
-	private JPanel FridgPanel2() {
+
+	private JPanel getJPanelTwo() {
 		JPanel panel = new JPanel();
 		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
-		JButton button = new JButton("Show Full Smart Fridge Stock");
+		JButton button = new JButton("All Stocks");
 		button.addActionListener(this);
 		panel.add(button);
-		panel.add(Box.createRigidArea(new Dimension(10, 10)));
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+
 
 		panel.setLayout(boxlayout);
-		textResponse = new JTextArea (3, 15);
-		textResponse .setLineWrap(true);
-		textResponse .setWrapStyleWord(true);
-		panel.add(textResponse);
+		textResponse2 = new JTextArea (3, 30);
+		textResponse2 .setLineWrap(true);
+		textResponse2 .setWrapStyleWord(true);
+		panel.add(textResponse2);
 		return panel;
 
 	}
+
+	private void build() {
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JPanel panel = new JPanel();
+		
+		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
+
+		panel.setLayout(boxlayout);
 	
+		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
+		panel.add(getJPanelOne());
+		panel.add(getJPanelTwo());
+		frame.setSize(200, 400);
+
 	
-	public void actionPerformed(ActionEvent e) { }
-	
-	
-	
-	
-}// class
+		frame.add(panel);
+		frame.pack();
+		frame.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		SmartFridgeGUI gui = new SmartFridgeGUI();
+		gui.build();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton button = (JButton) e.getSource();
+		String label = button.getActionCommand();
+
+		if (label.equals("Check Status")) {
+			ProductResponse response = SmartFridgeServiceGrpc.newBlockingStub(manageService2).productStockChecker(
+					ProductRequest.newBuilder().setProduct(this.request1.getSelectedItem().toString()).build());
+			this.response1.setText("There is " + response.getStockStatus() + " " + response.getProduct() + " in the stock.");
+			
+		} else if (label.equals("All Stocks")) {
+			
+			SmartFridgeServiceGrpc.newBlockingStub(manageService2)
+			.fullStockChecker(ProductRequestNoParam.newBuilder().build()).forEachRemaining(productResponse -> {
+				String text = this.textResponse2.getText();
+				text += productResponse.getProduct() + " : " + productResponse.getStockStatus() + "\n";
+				this.textResponse2.setText(text);
+			});
+		}
+	}
+
+}
