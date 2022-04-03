@@ -1,40 +1,53 @@
-package gymRoomControlService;
+package CLI;
 
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import gymRoomControlService.GymRoomServiceGrpc;
+import gymRoomControlService.LightRequest;
+import gymRoomControlService.LightResponse;
+import gymRoomControlService.LightStatus;
+import gymRoomControlService.TempRequest;
+import gymRoomControlService.TempResponse;
+import gymRoomControlService.GymRoomServiceGrpc.GymRoomServiceStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import servers.Server_GymRoom;
 
 public class GymRoomControlCLI {
 
 	public static void main(String[] args) {
+			
 		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
 
 		try (Scanner scannerInput = new Scanner(System.in)) {
 			System.out.println("1. Turn Lights On/Off");
 			System.out.println("2. Change Room Temperature");
 
-			System.out.print("Enter choice:");
+			// 2 Inputs to choose 
+			System.out.println("Enter choice:");
 			String choice = scannerInput.nextLine();
-
+			// Light Switch 
 			if (choice.equalsIgnoreCase("1")) {
-				System.out.print("1. Turn Lights on or off : ");
+				// Only Allowed inputs on or off
+				System.out.println("1. Turn Lights on or off : ");
 				String onOff = scannerInput.nextLine();
 				LightStatus lightRequest = onOff.equalsIgnoreCase("off") ? LightStatus.off : LightStatus.on;
+				// sync stub
 				LightResponse gymRoomServiceBlockingStub = GymRoomServiceGrpc.newBlockingStub(channel)
 						.turnOnOffLights(LightRequest.newBuilder().setTurnLightRequest(lightRequest).build());
 
 				System.out.println("Lights are now " + gymRoomServiceBlockingStub.getTurnLightResponse().name());
-
+				// Temperature change
 			} else if (choice.equalsIgnoreCase("2")) {
-				System.out.print("Enter temperature: ");
+				System.out.println("Enter temperature: ");
 				String temp = scannerInput.nextLine();
 				// temperature
 				final GymRoomServiceGrpc.GymRoomServiceStub gymRoomServiceStub = GymRoomServiceGrpc.newStub(channel);
 				CountDownLatch latch = new CountDownLatch(1);
+				//the latch will control the synchronization of our requests
 				final StreamObserver<TempRequest> req = gymRoomServiceStub
 						.changeRoomTemp(new StreamObserver<TempResponse>() {
 
@@ -66,4 +79,7 @@ public class GymRoomControlCLI {
 			}
 		}
 	}
+
+
+
 }
