@@ -1,8 +1,12 @@
-package workoutTrackerService;
+package CLI;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import workoutTrackerService.WorkoutRequest;
+import workoutTrackerService.WorkoutResponse;
+import workoutTrackerService.WorkoutTrackerServiceGrpc;
+import workoutTrackerService.WorkoutTrackerServiceImpl;
 
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
@@ -14,21 +18,22 @@ public class WorkoutTrackerCLI {
                 .usePlaintext()
                 .build();
 
-        Scanner myObj = new Scanner(System.in);
-        System.out.print("Please input name of Workout you would like to check");
-        String choice = myObj.nextLine();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Smart Home Treadmill");
+        System.out.println("Please Input Training Type to check ");
+        System.out.println("Walking |  Running |  Stairclimb | Cycling");
+        String choice = sc.nextLine();
 
-        System.out.print("Is this all you would like to check (y/n)");
-        String yn = myObj.nextLine();
+        System.out.println("Is this all you would like to check (y/n)");
+        String yn = sc.nextLine();
 
-        if(yn.equalsIgnoreCase("y")){
-            // *** if yes print only this one
+        if(yn.equalsIgnoreCase("yes" )){
+           
             sendRequest(manageService,choice,false);
         }else{
-            System.out.print("Would you like to print all (y/n)");
-            String isAll = myObj.nextLine();
-            if(isAll.equalsIgnoreCase("n")){
-                //** IF no then print only one from before
+            System.out.println("Would you like to print all (y/n)");
+            String isAll = sc.nextLine();
+            if(isAll.equalsIgnoreCase("no")){
                 sendRequest(manageService,choice,false);
             }else{
                 sendRequest(manageService,choice,true);

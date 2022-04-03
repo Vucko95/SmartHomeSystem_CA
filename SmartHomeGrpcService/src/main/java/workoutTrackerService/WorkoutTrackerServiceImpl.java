@@ -9,12 +9,12 @@ public class WorkoutTrackerServiceImpl extends WorkoutTrackerServiceGrpc.Workout
 
 
     public static Map<String,Integer> workout = new HashMap<>();
-
+    // Tradmill  App Setup
     static {
-        workout.put("Running",300);
-        workout.put("Hiking",350);
-        workout.put("Weights",250);
-        workout.put("Swimming",400);
+        workout.put("Walking",200);
+        workout.put("Running",350);
+        workout.put("Stairclimb",250);
+        workout.put("Cycling",300);
     }
 
     @Override
