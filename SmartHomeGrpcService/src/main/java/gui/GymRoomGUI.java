@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -15,8 +17,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import gymRoomControlService.GymRoomServiceGrpc;
+import gymRoomControlService.LightRequest;
+import gymRoomControlService.LightResponse;
+import gymRoomControlService.LightStatus;
+import gymRoomControlService.TempRequest;
+import gymRoomControlService.TempResponse;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 
 public class GymRoomGUI implements ActionListener  {
 	
@@ -112,10 +121,54 @@ public class GymRoomGUI implements ActionListener  {
 
 	}
 	
-	public void actionPerformed(ActionEvent e) {}
-	
+	public void actionPerformed(ActionEvent e) {
+		JButton button = (JButton) e.getSource();
+		String label = button.getActionCommand();
+		if (label.equals("Change Temperature")) {
+			System.out.println("changing temperature...");
+			final GymRoomServiceGrpc.GymRoomServiceStub gymRoomServiceStub = GymRoomServiceGrpc.newStub(manageService1);
+			final StreamObserver<TempRequest> req = gymRoomServiceStub
+					.changeRoomTemp(new StreamObserver<TempResponse>() {
+						@Override
+						public void onNext(TempResponse tempResponse) {
+							textResponse.setText("Desired Temperature is set to : " + tempResponse.getTempOutput());
+						}
+
+						@Override
+						public void onError(Throwable throwable) {
+
+						}
+
+						@Override
+						public void onCompleted() {
+
+						}
+					});
+			try {
+				req.onNext(TempRequest.newBuilder().setTempInput(Integer.parseInt(this.textNumber1.getText())).build());
+				req.onCompleted(); }
+
+				catch (RuntimeException err) {
+					err.printStackTrace();
+						System.out.println(err);
+				}
+
+			System.out.println("changing temperature ...");
+		} 
+		else if (label.equals("Change Light Status"))
+		{
+			String lightStatus = (String) this.LigthEntry2.getSelectedItem();
+			LightStatus lightRequest = lightStatus.equalsIgnoreCase(LightStatus.off.name()) ? LightStatus.off
+					: LightStatus.on;
+			final LightResponse gymRoomServiceBlockingStub = GymRoomServiceGrpc.newBlockingStub(manageService1)
+					.turnOnOffLights(LightRequest.newBuilder().setTurnLightRequest(lightRequest).build());
+
+			this.textResponse2.setText("Lights are now " + gymRoomServiceBlockingStub.getTurnLightResponse().name());
+		}
+
+	}
 		
-
-	
-
+		
+		
+		
 }// class GymRoomGUi
