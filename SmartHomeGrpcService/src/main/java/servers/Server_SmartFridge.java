@@ -1,7 +1,8 @@
-package smartFridgeService;
+package servers;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import smartFridgeService.SmartFridgeProtoServiceImpl;
 
 import java.io.IOException;
 

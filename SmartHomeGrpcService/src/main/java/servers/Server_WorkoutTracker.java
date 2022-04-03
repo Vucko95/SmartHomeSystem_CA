@@ -1,9 +1,10 @@
-package workoutTrackerService;
+package servers;
 
 import java.io.IOException;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import workoutTrackerService.WorkoutTrackerServiceImpl;
 
 public class Server_WorkoutTracker {
  

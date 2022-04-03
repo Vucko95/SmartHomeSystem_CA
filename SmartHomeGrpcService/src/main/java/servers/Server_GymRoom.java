@@ -1,9 +1,11 @@
-package gymRoomControlService;
+package servers;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 import java.io.IOException;
+
+import gymRoomControlService.GymRoomProtoServiceImpl;
 
 public class Server_GymRoom {
    

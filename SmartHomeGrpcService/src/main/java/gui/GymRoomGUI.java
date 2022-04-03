@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,8 +21,8 @@ import io.grpc.ManagedChannelBuilder;
 public class GymRoomGUI implements ActionListener  {
 	
 	private JTextField textNumber1, textResponse;
-	
-	
+	private JComboBox<String> LigthEntry2;
+	private JTextField textResponse2;
 	
 	
 	public static void main(String[] args) {
@@ -52,8 +53,7 @@ public class GymRoomGUI implements ActionListener  {
 		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
 
 		panel.add(Temp1JPanel());
-		
-
+		panel.add(LightsJPanel());
 		
 		frame.setSize(500, 500);
 
@@ -86,9 +86,31 @@ public class GymRoomGUI implements ActionListener  {
 		panel.setLayout(boxlayout);
 
 		return panel;
-		
-		
 		}
+	
+	private JPanel LightsJPanel() {
+		JPanel panel = new JPanel();
+		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
+		JLabel label = new JLabel("Light Status");
+		panel.add(label);
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+		LigthEntry2 = new JComboBox<>();
+		LigthEntry2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "On", "Off" }));
+		panel.add(LigthEntry2);
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+
+		JButton button = new JButton("Change Light Status");
+		button.addActionListener(this);
+		panel.add(button);
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+
+		textResponse2 = new JTextField("", 50);
+		textResponse2.setEditable(false);
+		panel.add(textResponse2);
+		panel.setLayout(boxlayout);
+		return panel;
+
+	}
 	
 	public void actionPerformed(ActionEvent e) {}
 	
