@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
-public class SimpleServiceRegistration {
+public class GymRoomServiceRegistration {
 
 	public void run(int port, String service_clientstreaming, String service_name) {
 
@@ -39,8 +39,8 @@ public class SimpleServiceRegistration {
 			
 			System.out.printf("registering service with type: %s and name: %s on port %d ", service_clientstreaming, service_name, service_port);
 			
-			//sleep for 10 seconds
-			Thread.sleep(10000);
+			//sleep for 5 seconds
+			Thread.sleep(5000);
 			System.out.println("\nService Registered");
 			//unregister the services
 			//jmdns.unregisterAllServices();   //you could also unregister a single service

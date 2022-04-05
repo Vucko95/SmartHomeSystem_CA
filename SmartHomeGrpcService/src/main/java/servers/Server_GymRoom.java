@@ -2,8 +2,8 @@ package servers;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import jmDNS.SimpleServiceDiscovery;
-import jmDNS.SimpleServiceRegistration;
+import jmDNS.GymRoomServiceDiscovery;
+import jmDNS.GymRoomServiceRegistration;
 import gymRoomControlService.GymRoomProtoServiceImpl;
 
 import java.io.IOException;
@@ -29,8 +29,8 @@ public class Server_GymRoom {
         
         int port = 50051;
         String service_clientstreaming = "_grpc._tcp.local.";
-        String service_name = "GrpcServer";
-        SimpleServiceRegistration ssr = new SimpleServiceRegistration();
+        String service_name = "GymRoomServer";
+        GymRoomServiceRegistration ssr = new GymRoomServiceRegistration();
         ssr.run(port, service_clientstreaming, service_name);
         
 		//Server Creation

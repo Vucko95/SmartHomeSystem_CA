@@ -11,12 +11,12 @@ import javax.jmdns.ServiceListener;
 
 
 
-public class SimpleServiceDiscovery {
+public class GymRoomServiceDiscovery {
 	
 	
 	
 	//option 1
-	private static class MyServiceListener implements ServiceListener{
+	private static class GymRoomServiceListener implements ServiceListener{
 
 		private int port;
 		private String host;
@@ -87,7 +87,7 @@ public class SimpleServiceDiscovery {
 			//need to listen for services added/removed etc.
 			
 			//jmdns.addServiceListener(service_type, new MyServiceListener());         //listen for specified type
-			MyServiceListener msl = new MyServiceListener();		
+			GymRoomServiceListener msl = new GymRoomServiceListener();		
 			jmdns.addServiceListener(service_clientstreaming, msl);
 
 			
