@@ -19,7 +19,7 @@ import servers.Server_GymRoom;
 public class GymRoomControlCLI {
 
 	public static void main(String[] args) {
-			
+		// connnect to server - establishing connection
 		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
 
 		try (Scanner scannerInput = new Scanner(System.in)) {
@@ -37,7 +37,9 @@ public class GymRoomControlCLI {
 				LightStatus lightRequest = onOff.equalsIgnoreCase("off") ? LightStatus.off : LightStatus.on;
 				// sync stub
 				LightResponse gymRoomServiceBlockingStub = GymRoomServiceGrpc.newBlockingStub(channel)
-						.turnOnOffLights(LightRequest.newBuilder().setTurnLightRequest(lightRequest).build());
+						.turnOnOffLights(LightRequest.newBuilder()
+								.setTurnLightRequest(lightRequest)
+								.build());
 
 				System.out.println("Lights are now " + gymRoomServiceBlockingStub.getTurnLightResponse().name());
 				// Temperature change
