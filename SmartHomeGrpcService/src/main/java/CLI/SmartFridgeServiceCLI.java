@@ -1,7 +1,11 @@
-package smartFridgeService;
+package CLI;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import smartFridgeService.ProductRequest;
+import smartFridgeService.ProductRequestNoParam;
+import smartFridgeService.ProductResponse;
+import smartFridgeService.SmartFridgeServiceGrpc;
 
 import java.util.Scanner;
 
@@ -15,14 +19,14 @@ public class SmartFridgeServiceCLI {
 
         Scanner myObj = new Scanner(System.in);
 
-        System.out.println("1. Product Stock Checker");
-        System.out.println("2. Full Stock Checker");
+        System.out.println("1. Fridge Product Check");
+        System.out.println("2. All Fridge Products");
 
-        System.out.print("Enter choice:");
+        System.out.println("Enter choice:");
         String choice = myObj.nextLine();
 
         if(choice.equalsIgnoreCase("1")){
-            System.out.print("Enter Product: ");
+            System.out.println("Enter Product: ");
             String product = myObj.nextLine();
 
             ProductResponse response = SmartFridgeServiceGrpc.newBlockingStub(manageService)
@@ -43,7 +47,6 @@ public class SmartFridgeServiceCLI {
         }else{
             System.out.println("Invalid Choice");
         }
-//        manageService.awaitTermination(1000000, null);
-//        manageService.shutdown();
+
     }
 }
