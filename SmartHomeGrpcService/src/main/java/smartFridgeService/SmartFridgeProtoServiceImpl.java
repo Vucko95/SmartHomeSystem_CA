@@ -26,7 +26,7 @@ public class SmartFridgeProtoServiceImpl extends SmartFridgeServiceGrpc.SmartFri
         Product prod = this.products.stream()
                 .filter(p -> p.name.equalsIgnoreCase(product))
                 .findFirst().orElse(new Product(0,product,0));
-        		System.out.println(product + "This one is not in fridge");
+        		System.out.println( "This one is not in fridge");
 
         responseObserver.onNext(ProductResponse.newBuilder()
                 .setProduct(product)

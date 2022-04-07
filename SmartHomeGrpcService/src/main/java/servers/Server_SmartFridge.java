@@ -2,7 +2,7 @@ package servers;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import jmDNS.SimpleServiceRegistration;
+import jmDNS.GymRoomServiceRegistration;
 import jmDNS.SmartFridgeRegistration;
 import smartFridgeService.SmartFridgeProtoServiceImpl;
 
@@ -14,21 +14,6 @@ public class Server_SmartFridge {
  
 
     public static void main(String[] args)  {
-//        final Server server = ServerBuilder.forPort(50052)
-//                .addService(new SmartFridgeProtoServiceImpl())
-//                .build();
-//
-//        server.start();
-//        System.out.println("Server Started");
-//
-//        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-//            System.out.println("Server shutting down");
-//            server.shutdown();
-//            System.out.println("Server closed");
-//        }));
-//
-//        server.awaitTermination();
-//    }// main
         int port = 50052;
         String SmartFridge_service = "_grpc._tcp.local.";
         String service_name = "SmartFridgeServer";

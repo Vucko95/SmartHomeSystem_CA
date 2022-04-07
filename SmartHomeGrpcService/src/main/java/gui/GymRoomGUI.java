@@ -51,22 +51,18 @@ public class GymRoomGUI implements ActionListener  {
 
 		JFrame frame = new JFrame("GymRoomGUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		JPanel panel = new JPanel();
-
-	
+		// Layout type for GUI
 		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
 		panel.setLayout(boxlayout);
-
-		
 		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
-
 		panel.add(Temp1JPanel());
-		panel.add(LightsJPanel());
-		
-		frame.setSize(500, 500);
+		panel.add(Box.createVerticalStrut(10));
 
-		
+		panel.add(LightsJPanel());
+		// Frame size
+		frame.setSize(500, 500);
+		// Window Visiability is by  default false
 		frame.add(panel);
 		frame.pack();
 		frame.setVisible(true);
@@ -79,7 +75,7 @@ public class GymRoomGUI implements ActionListener  {
 		JLabel label = new JLabel("Desired Temperature");
 		panel.add(label);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-		textNumber1 = new JTextField("", 10);
+		textNumber1 = new JTextField("", 5);
 		panel.add(textNumber1);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
@@ -88,7 +84,7 @@ public class GymRoomGUI implements ActionListener  {
 		panel.add(button);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
-		textResponse = new JTextField("", 50);
+		textResponse = new JTextField("", 20);
 		textResponse.setEditable(false);
 		panel.add(textResponse);
 
@@ -111,21 +107,22 @@ public class GymRoomGUI implements ActionListener  {
 		JButton button = new JButton("Change Light Status");
 		button.addActionListener(this);
 		panel.add(button);
-		panel.add(Box.createRigidArea(new Dimension(10, 0)));
+		panel.add(Box.createRigidArea(new Dimension(10, 10)));
 
-		textResponse2 = new JTextField("", 50);
+		textResponse2 = new JTextField("", 5);
 		textResponse2.setEditable(false);
 		panel.add(textResponse2);
 		panel.setLayout(boxlayout);
 		return panel;
 
 	}
-	
+
 	public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton) e.getSource();
 		String label = button.getActionCommand();
 		if (label.equals("Change Temperature")) {
 			System.out.println("changing temperature...");
+//			Client Streaming
 			final GymRoomServiceGrpc.GymRoomServiceStub gymRoomServiceStub = GymRoomServiceGrpc.newStub(manageService1);
 			final StreamObserver<TempRequest> req = gymRoomServiceStub
 					.changeRoomTemp(new StreamObserver<TempResponse>() {
@@ -155,6 +152,7 @@ public class GymRoomGUI implements ActionListener  {
 
 			System.out.println("changing temperature ...");
 		} 
+		// Unary RPC
 		else if (label.equals("Change Light Status"))
 		{
 			String lightStatus = (String) this.LigthEntry2.getSelectedItem();
@@ -165,10 +163,5 @@ public class GymRoomGUI implements ActionListener  {
 
 			this.textResponse2.setText("Lights are now " + gymRoomServiceBlockingStub.getTurnLightResponse().name());
 		}
-
 	}
-		
-		
-		
-		
 }// class GymRoomGUi

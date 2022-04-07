@@ -41,14 +41,12 @@ public class GymRoomServiceDiscovery {
 			ServiceInfo serviceInfo = event.getInfo();
 			this.setServiceInfo(serviceInfo);
 			System.out.println("host " + serviceInfo.getHostAddress());
-			//this.setHost(serviceInfo.getHostAddress());
 			System.out.println("port " + serviceInfo.getPort());
 			this.setPort(serviceInfo.getPort());
 			System.out.println("type " + serviceInfo.getType());
 			System.out.println("name " + serviceInfo.getName());
 			System.out.println("Computername " + serviceInfo.getServer());
 			System.out.println("desc/properties " + serviceInfo.getNiceTextString());
-			//System.out.println("desc/properties " + serviceInfo.);
 		}
 
 		public int getPort() {
@@ -70,29 +68,18 @@ public class GymRoomServiceDiscovery {
 		
 	}
 
-	//public static void main(String[] args) {
 	public static ServiceInfo run(String service_clientstreaming) {
-		
+	
 		int port = 0;
 		ServiceInfo serviceInfo = null;
-		// get an instance of jmDNS
-				
-		
+	
 		try {
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
-			
-			//will discover the service based on service type
-			//String service_type = "_grpc._tcp.local";				
-			
-			//need to listen for services added/removed etc.
-			
-			//jmdns.addServiceListener(service_type, new MyServiceListener());         //listen for specified type
+
 			GymRoomServiceListener msl = new GymRoomServiceListener();		
 			jmdns.addServiceListener(service_clientstreaming, msl);
-
-			
-			//sleep for 10 seconds
-			Thread.sleep(10000);
+			//sleep for 5 seconds
+			Thread.sleep(5000);
 			
 			serviceInfo = msl.getServiceInfo();
 			port = msl.getPort();

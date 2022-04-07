@@ -40,19 +40,16 @@ public class SmartFridgeGUI implements ActionListener {
 		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 		JLabel label = new JLabel("Fridge");
 		panel.add(label);
-		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-		
+		panel.add(Box.createRigidArea(new Dimension(10, 0)));	
 		request1 = new JComboBox<>();
 		request1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Milk", "Cheese", "Eggs", "Bacon" }));
 		panel.add(request1);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
 		JButton button = new JButton("Check Status");
 		button.addActionListener(this);
 		panel.add(button);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
-		response1 = new JLabel("--");
+		response1 = new JLabel("Smart Fridge Display");
 		panel.add(response1);
 		panel.setLayout(boxlayout);
 		
@@ -67,8 +64,6 @@ public class SmartFridgeGUI implements ActionListener {
 		button.addActionListener(this);
 		panel.add(button);
 		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
-
 		panel.setLayout(boxlayout);
 		textResponse2 = new JTextArea (3, 30);
 		textResponse2 .setLineWrap(true);
@@ -79,7 +74,7 @@ public class SmartFridgeGUI implements ActionListener {
 	}
 
 	private void build() {
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame("SmartFridge GUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
@@ -90,6 +85,7 @@ public class SmartFridgeGUI implements ActionListener {
 	
 		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
 		panel.add(getJPanelOne());
+		panel.add(Box.createVerticalStrut(10));
 		panel.add(getJPanelTwo());
 		frame.setSize(200, 400);
 

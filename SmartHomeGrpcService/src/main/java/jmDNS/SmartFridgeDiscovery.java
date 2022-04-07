@@ -69,28 +69,18 @@ public class SmartFridgeDiscovery {
 		
 	}
 
-	//public static void main(String[] args) {
 	public static ServiceInfo run(String SmartFridge_service) {
 		
 		int port = 0;
-		ServiceInfo serviceInfo = null;
-		// get an instance of jmDNS
-				
+		ServiceInfo serviceInfo = null;			
 		
 		try {
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
-			
-			//will discover the service based on service type
-			//String service_type = "_grpc._tcp.local";				
-			
-			//need to listen for services added/removed etc.
-			
-			//jmdns.addServiceListener(service_type, new MyServiceListener());         //listen for specified type
 			SmartFridgeListener msl = new SmartFridgeListener();		
 			jmdns.addServiceListener(SmartFridge_service, msl);
 
 			
-			//sleep for 10 seconds
+			//sleep for 5 seconds
 			Thread.sleep(5000);
 			
 			serviceInfo = msl.getServiceInfo();

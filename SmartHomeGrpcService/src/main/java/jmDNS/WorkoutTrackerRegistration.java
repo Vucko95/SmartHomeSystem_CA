@@ -11,40 +11,22 @@ public class WorkoutTrackerRegistration {
 
 	public void run(int port, String workoutTracker_service, String service_name) {
 
-		//get a jMDNS instance
 		try {
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
-			
-			/*
-			 * service information
-			 */
-			
-			//the assumption is that we are registering a grpc server
-			//service_type = "_grpc._tcp.local.";				//service-type.domain
-			// service_name + service_type => simple_http._tcp.local
-			//String service_name = "GrpcServer";							
+				
 			int service_port = port;
 			String service_desc = "test integration of jmDNS with gRPC";
-				
-			
-			//Create ServiceInfo - 
-			//use the factory method to create the object			
+	
 			ServiceInfo serviceInfo = ServiceInfo.create(workoutTracker_service, service_name, service_port, service_desc);
 			
-			/*
-			 * register the service
-			 */
-			
+
 			jmdns.registerService(serviceInfo);
 			
 			System.out.printf("registering service with type: %s and name: %s on port %d ", workoutTracker_service, service_name, service_port);
 			
 			//sleep for 5 seconds
 			Thread.sleep(5000);
-			System.out.println("\nService Registered");
-			//unregister the services
-			//jmdns.unregisterAllServices();   //you could also unregister a single service
-			
+			System.out.println("\nService Registered");	
 			
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block

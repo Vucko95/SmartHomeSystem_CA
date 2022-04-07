@@ -39,20 +39,14 @@ import javax.swing.border.EmptyBorder;
 
 
 		private void build () {
-
 			JFrame frame = new JFrame("Workout Tracker GUI");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 			JPanel panel = new JPanel();
-
-
 			BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
 			panel.setLayout(boxlayout);
-
-
 			panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
-
 			panel.add(WorkoutTrackerPanel1());
+			panel.add(Box.createVerticalStrut(10));
 			panel.add(WorkoutTrackerPanel2());
 			frame.setSize(500, 500);
 			frame.add(panel);
@@ -66,19 +60,16 @@ import javax.swing.border.EmptyBorder;
 			JLabel label = new JLabel("Workout");
 			panel.add(label);
 			panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
 			request1 = new JComboBox<>();
 			request1.setModel(
 					new javax.swing.DefaultComboBoxModel<>(new String[] { "Walking", "Running", "Stairclimb", "Cycling" }));
 			panel.add(request1);
 			panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
 			JButton button = new JButton("Check");
 			button.addActionListener(this);
 			panel.add(button);
 			panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
-			response1 = new JLabel("--");
+			response1 = new JLabel("Workout Display");
 			panel.add(response1);
 			panel.setLayout(boxlayout);
 
@@ -96,11 +87,9 @@ import javax.swing.border.EmptyBorder;
 			button.addActionListener(this);
 			panel.add(button);
 			panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
-			responseAll = new JTextArea();
-			
+			responseAll = new JTextArea();	
 			panel.setLayout(boxlayout);
-			responseAll = new JTextArea (6, 10);
+			responseAll = new JTextArea (3, 10);
 			responseAll .setLineWrap(true);
 			responseAll .setWrapStyleWord(true);
 			panel.add(responseAll);
